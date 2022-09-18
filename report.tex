@@ -67,7 +67,14 @@ Short  summary of purpose and content.
 
 \section{Introduction}\label{intro}
 
-Replace this entire Section~\ref{intro} with your own short introduction. 
+\begin{verbatim}
+Name: Keoni Lanoza
+Class: Programming Languages
+Section: CPSC354-01
+Email: lanoza@chapman.edu
+\end{verbatim}
+
+This document is a collection of homework assignment answers as requested by Prof. Kurz. This report will replace a generic midterm and final exam and will be thought of as a take home exam to be worked on throughout the semester in addition to a final project.
 
 \subsection{General Remarks}
 
@@ -223,13 +230,147 @@ B is now replaced with B - A, or 6 - 3, which equals 3. Now that A and B are equ
 
 \subsection{Week 2}
 
-The example I will be choosing from Homework 2 is the less\_equal function I implemented in Haskell with the following lists [1,2,3] and [2,3,4].
-My code is uploaded in Homework2.hs. It works by taking in two lists (x:xs) and (y:ys) as input. it functions recursively, by comparing the heads (x and y) of each
-list and returning a value of False whenever x is greater than or equal to the value of y. If in the current iteration it is less than or equal to the value of y, then it proceeds via recursion to evaluate the rest of the lists (xs and ys). If it is able to get to the end of the list, then it returns a value of True.
+\begin{verbatim}
+import Data.List
+import System.IO
 
-For the two example lists [1,2,3] and [2,3,4], because each value in the first list is less than the corresponding value in the second list(by index), the program returns True.
+select_evens :: [Int] -> [Int]
+select_evens (x:xs) = [(x:xs)!!y | y <- (y:ys)] 
+  where (y:ys) = [1,3..(length (x:xs)-1)]
+
+select_odds :: [Int] -> [Int]
+select_odds (x:xs) = [(x:xs)!!y | y <- (y:ys)] 
+  where (y:ys) = [0,2..(length (x:xs)-1)]
+
+member :: Int -> [Int] -> Bool
+member _ _ = False
+member x (y:ys)
+  | x == y = True
+  | otherwise = member x ys
+
+append :: [Int] -> [Int] -> [Int]
+append (x:xs) (y:ys) = x:xs ++ y:ys
+
+revert :: [Int] -> [Int]
+revert [] = []
+revert (x:xs) = revert (xs) ++ [x]
+
+less_equal :: [Int] -> [Int] -> Bool
+less_equal (x:xs) (y:ys)
+  | x >= y = False
+  | length (xs) == 0 && length (ys) == 0 = True
+  | otherwise = less_equal xs ys
+
+Select_Evens Computation:
+select_evens [1,2,3,4,5] =
+[] : [(1,2,3,4,5)!!1 | 1 <- ([1,3]) =
+2 : [(1,2,3,4,5)!!3 | 3 <- ([1,3]) =
+[2, 4]
+
+Select_Odds Computation:
+select_odds [1,2,3,4,5] =
+[] : [1,2,3,4,5)!!0 | 0 <- ([0,2,4]) =
+1 : [(1,2,3,4,5)!!2 | 2 <- ([2,4]) =
+1 : (3 : [(1,2,3,4,5)!!4 | 4 <- ([4]) =
+[1,3,5] 
+
+Member Computation:
+member 1 [3, 2, 1] =
+1 == 3 = False, so member 1 [2,1] =
+1 == 2 = False, so member 1 [1] =
+1 == 1 = True, so 1 is a member of [3, 2, 1]
+
+Append Computation:
+append [1,2] [3,4,5] =
+1 : (append [2] [3,4,5]) =
+1 : (2 : (append [] [3,4,5]) =
+1: (2: [3,4,5]) =
+[1,2,3,4,5]
+
+Revert Computation:
+revert [1,2,3,4,5] =
+append (revert [2,3,4,5]) ([1]) =
+append (append (revert [3,4,5]) ([2])) ([1]) =
+append (append (append (revert [4,5]) ([3])) ([2])) ([1]) =
+append (append (append (append (revert [5]) ([4])) ([3])) ([2])) ([1]) =
+append (append (append (append (append (revert []) ([5])) ([4])) ([3])) ([2])) ([1]) =
+append (append (append (append (append [] ([5])) ([4])) ([3])) ([2])) ([1]) =
+append (append (append (append (append [] ([5])) ([4])) ([3])) ([2])) ([1]) =
+append (append (append (append ([5]) ([4])) ([3])) ([2])) ([1]) =
+append (append (append ([5,4]) ([3])) ([2])) ([1]) =
+append (append ([5,4,3]) ([2])) ([1]) =
+append ([5,4,3,2]) ([1]) =
+[5,4,3,2,1]
+
+Less_Equal Computation:
+less_equal [1,2,3] [2,3,4] =
+1 >= 2 = False, so less_equal [2,3] [3,4] =
+2 >= 3 = False, so less_equal [3] [4] =
+3 >= 4 = False, so less_equal [] [] =
+True
+
+
+\end{verbatim}
 
 \subsection{Week 3}
+
+\begin{verbatim}
+Tower Of Hanoi correct computations for a tower of 5
+hanoi 5 0 2
+  hanoi 4 0 1 
+    hanoi 3 0 2
+      hanoi 2 0 1 
+        hanoi 1 0 2 = move 0 2 
+        move  0 1
+        hanoi 1 2 1 = move 2 1 
+      move 0 2  
+      hanoi 2 1 2  
+        hanoi 1 1 0 = move 1 0  
+        move  1 2  
+        hanoi 1 0 2 = move 0 2 
+    move 0 1
+    hanoi 3 2 1
+      hanoi 2 2 0
+        hanoi 1 2 1 = move 2 1
+        move 2 0
+        hanoi 1 1 0 = move 1 0
+      move 2 1
+      hanoi 2 0 1
+        hanoi 1 0 2 = move 0 2
+        move 0 1
+        hanoi 1 2 1 = move 2 1
+  move 0 2
+  hanoi 4 1 2
+    hanoi 3 1 0
+      hanoi 2 1 2
+        hanoi 1 1 0 = move 1 0
+        move 1 2
+        hanoi 1 0 2 = move 0 2
+      move 1 0
+      hanoi 2 2 0
+        hanoi 1 2 1 = move 2 1
+        move 2 0
+        hanoi 1 1 0 = move 1 0
+    move 1 2
+    hanoi 3 0 2
+      hanoi 2 0 1
+        hanoi 1 0 2 = move 0 2
+        move 0 1
+        hanoi 1 2 1 = move 2 1
+      move 0 2
+      hanoi 2 1 2
+        hanoi 1 1 0 = move 1 0
+        move 1 2
+        hanoi 1 0 2 = move 0 2
+
+\end{verbatim}
+
+Hanoi appears in the computation 31 times.
+We can express the number of times "hanoi" appears for any number n of disks with the formula: 
+
+\begin{math}
+$$numHanoi =2^{numDisks}$$
+\end{math}
 
 \ldots
 

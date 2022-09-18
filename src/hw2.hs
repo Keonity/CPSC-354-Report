@@ -16,11 +16,14 @@ member x (y:ys)
   | otherwise = member x ys
 
 append :: [Int] -> [Int] -> [Int]
-append (x:xs) (y:ys) = x:xs ++ y:ys
+append [] [] = []  
+append (x:xs) [] = x:xs
+append [] (y:ys) = y:ys
+append (x:xs) (y:ys) = x : append (xs) (y:ys)
 
 revert :: [Int] -> [Int]
 revert [] = []
-revert (x:xs) = revert (xs) ++ [x]
+revert (x:xs) = append (revert (xs)) ([x])
 
 less_equal :: [Int] -> [Int] -> Bool
 less_equal (x:xs) (y:ys)
