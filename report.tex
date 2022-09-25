@@ -372,6 +372,109 @@ We can express the number of times "hanoi" appears for any number n of disks wit
 $$numHanoi =2^{numDisks}$$
 \end{math}
 
+\subsection{Week 3}
+\begin{verbatim}
+Concrete Syntax Trees
+
+1. 2+1
+           Exp
+         /       \
+       Exp  +   Exp1
+        |             |
+      Num        Num
+        |          |
+        2          1
+
+2. 1+2*3
+           Exp
+         /       \
+       Exp  +   Exp1
+        |          |
+      Num          Exp1
+        |          /   \
+        1        Exp1 * Exp2
+                   |       |
+                 Num      Num
+                  |         |
+                  2         3 
+
+3. 1+(2*3)
+           Exp
+         /       \
+       Exp  +   Exp2
+        |          |
+      Num        ( Exp 1 )
+        |          /   \
+        1        Exp1 * Exp2
+                   |       |
+                 Num      Num
+                  |         |
+                  2         3 
+
+4. (1+2)*3
+           Exp1
+         /       \
+       (Exp)  *   Exp2
+      /       \      |
+    Exp  +  Exp1     Num
+      |      |        |
+      Num   Num       3
+      |       |
+      1       2      
+
+5. 1+2*3+4*5+6
+                  Exp
+               /       \
+            Exp    +     Exp1
+            /                 \
+         Exp                       Exp
+        /     \                /         \ 
+      Num       Exp1            Exp1        Num 
+       |      /      \         /      \       |
+       1    Exp1 * Exp2       Exp1 *  Exp2    6
+              |       |        |        |
+             Num   Num       Num       Num
+              |        |        |        |
+             2         3       4         5
+
+Abstract Syntax Trees
+
+1. 2+1
+        +
+      /    \
+     2      1
+
+2. 1+2*3
+             +
+           /   \
+          1     *
+              /    \
+             2      3
+
+3. 1+(2*3) (Same as 2 because parantheses are not in the grammar)
+             +
+           /   \
+          1     *
+              /    \
+             2      3
+
+4. (1+2)*3 (Same as 2 because parantheses are not in the grammar)
+             +
+           /   \
+          1     *
+              /    \
+             2      3        
+
+5. 1+2*3+4*5+6
+                  +
+            /          \
+          +             +
+       /     \       /      \
+     1       *        *      6
+           /   \    /  \ 
+          2    3    4  5
+
+\end{verbatim}
 \ldots
 
 \section{Project}
