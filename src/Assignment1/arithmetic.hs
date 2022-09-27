@@ -33,6 +33,12 @@ addP I I = T I
 addP I (T m) = T (addP m I)
 addP (T m) I = T (addP m I)
 addP (T m) (T n) = T (T (addP m n))
+
+multP :: PP -> PP -> PP
+multP I I = I
+multP I (T m) = addP (multP I m) (m)
+multP (T m) I = addP (multP I m) (m)
+multP (T m) (T n) = T (T (multP m (T n)))
 ----------------
 -- NN Arithmetic
 ----------------
@@ -77,3 +83,9 @@ main = do
     print $ addP (T I) (I) -- T (T I)
     print $ addP (I) (T I) -- T (T I)
     print $ addP (T (T I)) (T I) -- T (T (T (T I))))
+    print $ multP I I -- I
+    print $ multP I (T I) -- (T I)
+    print $ multP (T I) I -- (T I)
+    print $ multP (T I) (T I) -- T (T (T I))
+    print $ multP (T (T I)) (T I) -- T (T (T (T (T I))))
+    print $ multP (T I) (T (T I)) -- T (T (T (T (T I))))
