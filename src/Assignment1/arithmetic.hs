@@ -39,6 +39,14 @@ multP I I = I
 multP I (T m) = addP (multP I m) (m)
 multP (T m) I = addP (multP I m) (m)
 multP (T m) (T n) = T (T (multP m (T n)))
+
+nn_pp :: PP -> NN
+nn_pp I = S O
+nn_pp (T m) = S (nn_pp m)
+
+ii_pp :: PP -> II
+ii_pp I = II (S O) O
+ii_pp (T m) = II (S (nn_pp m)) O 
 ----------------
 -- NN Arithmetic
 ----------------
@@ -89,3 +97,7 @@ main = do
     print $ multP (T I) (T I) -- T (T (T I))
     print $ multP (T (T I)) (T I) -- T (T (T (T (T I))))
     print $ multP (T I) (T (T I)) -- T (T (T (T (T I))))
+    print $ nn_pp I -- S (O)
+    print $ nn_pp (T I) -- S (S O)
+    print $ ii_pp I -- II (S O) O
+    print $ ii_pp (T I) -- II (S (S O)) O
