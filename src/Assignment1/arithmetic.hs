@@ -66,8 +66,8 @@ multN (S n) m = addN (multN n m) m
 
 subN :: NN -> PP -> NN
 subN O m = O
-subN (S n) I = n
-subN (S n) (T m) = subN n m
+subN (S m) I = m
+subN (S m) (T n) = subN m n
 -- subN 7 4 = subN 6 3
 -- subN 6 3 = subN 5 2
 -- subN 5 2 = subN 4 1
@@ -77,7 +77,7 @@ divN :: NN -> PP -> NN
 divN O m = O
 divN (S m) I = S m
 divN (S O) m = S O
-divN (S m) n = divN (subN (S m) n) n
+divN (S m) (T n) = divN (subN (S m) (T n)) (T n)
 -- divN 7 4 = divN (subN 7 4) 4
 -- divN (subN 7 4) 4 = divN (subN 6 3) 3
 -- divN (subN 6 3) 3 = divN (subN 5 2) 2
@@ -85,7 +85,14 @@ divN (S m) n = divN (subN (S m) n) n
 -- divN (subN 4 1) 1 = subN 4 1
 -- subN 4 1 = 3
 
+-- divN 3 4 = divN (subN 3 4) 4
+-- divN (subN 3 4) 4 = divN (subN 2 3) 4
+-- divN (subN 2 3) 4 = divN (subN 1 2) 4
+-- divN (subN 1 2) 4 = divN (subN 0 2) 4
+-- divN (subN 0 2) 4 = divN 0 4 = 0
+
 -- How to prevent divN from making (S n) go to zero?
+-- How to prevent divN the left side of the equation from reaching zero?
 
 ----------------
 -- II Arithmetic
@@ -106,6 +113,28 @@ divN (S m) n = divN (subN (S m) n) n
 -- Converting between VM-numbers and Haskell-numbers
 ----------------------------------------------------
 
+nn_int :: Integer -> NN
+nn_int 0 = O
+nn_int 1 = S O
+nn_int x = S (nn_int (x-1))
+
+int_nn :: NN -> Integer
+int_nn O = 0
+int_nn (S O) = 1
+int_nn (S n) = 1 + int_nn(n)
+
+-- INTEGERS & CUSTOM INTEGERS
+
+-- POSITIVE NUMBERS
+pp_int :: Integer -> PP
+pp_int 1 = I
+pp_int 2 = (T I)
+pp_int x = T (pp_int (x-1))
+
+int_pp :: PP -> Integer
+int_pp I = 1
+int_pp (T I) = 2
+int_pp (T n) = 1 + int_pp(n)
 
 ----------
 -- Testing
@@ -136,9 +165,25 @@ main = do
     print $ subN (S (S O)) (T I) -- O
     print $ subN (S (S (S (S (S O))))) (T (T I)) -- S (S O)
     print $ subN (S (S (S (S (S (S (S O))))))) (T (T (T I))) -- S (S (S O))
+    
 
-    print $ divN (S (S O)) I -- S (S O)
+    print "Incorrect divN tests"
     print $ divN (S (S (S (S (S (S (S O))))))) (T (T (T I))) -- S (S (S O))
+    print $ divN (S (S (S O))) (T (T (T I))) -- S (S (S O))
+    print $ divN (S (S O)) (T (T I)) -- S (S O)
+    print "Correct divN tests"
+    print $ divN (S (S O)) I -- S (S O)
+    print $ divN (S (S (S (S (S O))))) (T (T (T I))) -- (S O)
+    print $ divN (S O) (T (T (T I))) -- S O
     print $ divN (S O) I -- S O
+
+    print "NN to Integers"
+    print $ nn_int 3 -- (S (S (S O)))
+    print "Integers to NN"
+    print $ int_nn (S (S (S O))) -- 3
+    print "PP to Integers"
+    print $ pp_int 3 -- (T (T I))
+    print "Integers to PP"
+    print $ int_pp (T (T I)) -- 3
     
     
