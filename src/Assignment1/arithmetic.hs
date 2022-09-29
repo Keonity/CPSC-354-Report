@@ -117,6 +117,26 @@ addI (II O (S m)) (II O (S n)) = II O (addN (S m) (S n))
 addI (II (S m) (S n)) (II (S p) (S q)) = II (addN(S m) (S p)) (addN(S n) (S q))
 addI (II _ _) (II _ _) = II O O
 
+-- Multiplication: (a-b)*(c-d)=(ac+bd)-(ad+bc)
+multI :: II -> II -> II
+multI (II O O) (II O O) = II O O
+multI (II (S m) O) (II O O) = II O O
+multI (II (S m) (S n)) (II O O) = II O O
+multI (II (S m) O) (II (S n) O) = II (multN(S m) (S n)) O
+multI (II (S m) O) (II O (S n)) = II O (multN(S m) (S n))
+multI (II O (S m)) (II O O) = II O O
+multI (II (S m) (S n)) (II O O) = II O O
+multI (II O (S m)) (II (S n) O) = II O (multN (S m) (S n))
+multI (II O (S m)) (II O (S n)) = II (multN (S m) (S n)) O
+multI (II O O) (II (S n) O) = II O O
+multI (II O O) (II (S n) (S m)) = II O O
+multI (II O O) (II O (S n)) = II O O
+multI (II (S m) (S n)) (II (S p) O) = II (multN(S m) (S p)) (multN(S n) (S p))
+multI (II (S m) (S n)) (II O (S p)) = II (multN(S n) (S p)) (multN(S m) (S p))
+multI (II (S m) O) (II (S n) (S p)) = II (multN(S m) (S n)) (multN(S m) (S p))
+multI (II O (S m)) (II (S n) (S p)) = II (multN (S m) (S p)) (multN (S m) (S n))
+multI (II (S m) (S n)) (II (S p) (S q)) = II (addN(multN(S m) (S p)) (multN(S n) (S q))) (addN(multN(S n) (S p)) (multN(S m) (S q)))
+multI (II _ _) (II _ _) = II O O
 ----------------
 -- QQ Arithmetic
 ----------------
@@ -229,5 +249,10 @@ main = do
     print $ addI (II O O) (II O (S (S O))) -- II O (S (S O))
     print $ addI (II O O) (II (S O) (S (S O))) -- II (S O) (S (S O))
     print $ addI (II (S O) (S (S O))) (II (S (S (S O))) (S (S (S (S O))))) -- II (S (S (S (S O)))) (S (S (S (S (S (S O))))))
+
+    print "Integer Multiplication"
+    print $ multI (II O O) (II (S O) (S (S O))) -- II O O 
+    print $ multI (II (S O) (S (S O))) (II O O) -- II O O 
+    print $ multI (II (S O) (S (S O))) (II (S O) (S (S O))) -- II (S (S (S (S (S O))))) (S (S (S (S O))))
     
     
