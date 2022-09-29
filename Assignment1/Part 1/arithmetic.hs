@@ -148,10 +148,17 @@ negI (II (S n) (S m)) = II (S m) (S n)
 -- Equality of Integers
 instance Eq II where
   (II a b) == (II c d) = (a == c) && (b == d)
+
 ----------------
 -- QQ Arithmetic
 ----------------
 
+-- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
+addQ :: QQ -> QQ -> QQ
+addQ (QQ (II O O) I) (QQ (II O O) I) = QQ (II O O) I
+addQ (QQ (II O O) (T I)) (QQ (II O O) (T I)) = QQ (II O O) (T I)
+addQ (QQ (II (S O) O) I) (QQ (II O O) I) = QQ (II O O) I
+addQ _ _ = QQ (II O O) I
 
 ----------------
 -- Normalisation
