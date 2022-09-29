@@ -9,6 +9,7 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Use camelCase" #-}
 {-# OPTIONS_GHC -Wno-overlapping-patterns #-}
+{-# HLINT ignore "Redundant bracket" #-}
 data NN = O | S NN
   deriving (Eq,Show) -- for equality and printing
 
@@ -98,6 +99,23 @@ divN (S m) (T n) = divN (subN (S m) (T n)) (T n)
 -- II Arithmetic
 ----------------
 
+-- (a-b)+(c-d)=(a+c)-(b+d)
+addI :: II -> II -> II
+addI (II O O) (II O O) = II O O
+addI (II (S m) O) (II O O) = II (S m) O
+addI (II (S m) O) (II (S n) O) = II (addN (S m) (S n)) O
+addI (II (S m) O) (II O (S n)) = II (S m) (S n)
+addI (II (S m) O) (II (S n) (S p)) = II (addN (S m) (S n)) (S p)
+addI (II O (S m)) (II O O) = II (O) (S m)
+addI (II (S m) (S n)) (II O O) = II (S m) (S n)
+addI (II O (S m)) (II (S n) O) = II (S n) (S m)
+addI (II O (S m)) (II (S n) (S p)) = II (S n) (addN(S m) (S p))
+addI (II O O) (II (S m) O) = II (addN (S m) O) O
+addI (II O O) (II (S m) (S n)) = II (S n) (S m)
+addI (II O O) (II O (S m)) = II O (S m)
+addI (II O (S m)) (II O (S n)) = II O (addN (S m) (S n))
+addI (II (S m) (S n)) (II (S p) (S q)) = II (addN(S m) (S p)) (addN(S n) (S q))
+addI (II _ _) (II _ _) = II O O
 
 ----------------
 -- QQ Arithmetic
@@ -124,8 +142,20 @@ int_nn (S O) = 1
 int_nn (S n) = 1 + int_nn(n)
 
 -- INTEGERS & CUSTOM INTEGERS
+{-
+ii_int :: Integer -> II
+ii_int 1 = II O (S O)
+ii_int 0 = II O O
+ii_int x = II (S (ii_int (x-1))) O
+
+int_ii :: II -> II -> Integer
+int_ii II O (S O) = -1
+int_ii II O O = 0
+int_ii II n m = O */
+-}
 
 -- POSITIVE NUMBERS
+
 pp_int :: Integer -> PP
 pp_int 1 = I
 pp_int 2 = (T I)
@@ -135,6 +165,14 @@ int_pp :: PP -> Integer
 int_pp I = 1
 int_pp (T I) = 2
 int_pp (T n) = 1 + int_pp(n)
+
+----------------
+-- Normalisation by evaluation
+----------------
+{-
+nbe :: II -> II
+nbe n = ii_int(int_ii(n))
+-}
 
 ----------
 -- Testing
@@ -185,5 +223,11 @@ main = do
     print $ pp_int 3 -- (T (T I))
     print "Integers to PP"
     print $ int_pp (T (T I)) -- 3
+
+    print "Integer Addition"
+    print $ addI (II O O) (II (S (S O)) O) -- II (S (S O)) O
+    print $ addI (II O O) (II O (S (S O))) -- II O (S (S O))
+    print $ addI (II O O) (II (S O) (S (S O))) -- II (S O) (S (S O))
+    print $ addI (II (S O) (S (S O))) (II (S (S (S O))) (S (S (S (S O))))) -- II (S (S (S (S O)))) (S (S (S (S (S (S O))))))
     
     
