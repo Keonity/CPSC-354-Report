@@ -23,6 +23,7 @@ data PP = I | T PP
 
 -- Rational numbers
 data QQ =  QQ II PP
+  deriving Show -- for printing
 
 ------------------------
 -- Arithmetic on the  VM
@@ -158,7 +159,14 @@ addQ :: QQ -> QQ -> QQ
 addQ (QQ (II O O) I) (QQ (II O O) I) = QQ (II O O) I
 addQ (QQ (II O O) (T I)) (QQ (II O O) (T I)) = QQ (II O O) (T I)
 addQ (QQ (II (S O) O) I) (QQ (II O O) I) = QQ (II O O) I
-addQ _ _ = QQ (II O O) I
+addQ (QQ n m) (QQ p q) = QQ (addI(multI(n) (ii_pp(q))) (multI(p) (ii_pp(m)))) (multP(m) (q))
+
+-- Multiplication: (a/b)*(c/d)=(ac)/(bd)
+multQ :: QQ -> QQ -> QQ
+multQ (QQ (II O O) I) (QQ (II O O) I) = QQ (II O O) I
+multQ (QQ (II O O) (T I)) (QQ (II O O) (T I)) = QQ (II O O) (T I)
+multQ (QQ n m) (QQ p q) = (QQ (multI n p) (multP m q))
+
 
 ----------------
 -- Normalisation
@@ -273,4 +281,5 @@ main = do
     print $ multI (II (S O) (S (S O))) (II O O) -- II O O 
     print $ multI (II (S O) (S (S O))) (II (S O) (S (S O))) -- II (S (S (S (S (S O))))) (S (S (S (S O))))
     
-    
+    print "Fraction Addition"
+    print $ addQ (QQ (II (S (S O)) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S O)))) I) 
