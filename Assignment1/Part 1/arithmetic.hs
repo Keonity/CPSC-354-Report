@@ -159,7 +159,7 @@ negI (II (S n) (S m)) = II (S m) (S n)
 
 -- Equality of Integers
 instance Eq II where
-  (II a b) == (II c d) = (a == c) && (b == d)
+  (II a b) == (II c d) = int_ii(II a b) == int_ii(II c d)
 
 ----------------
 -- QQ Arithmetic
@@ -178,6 +178,9 @@ multQ (QQ (II O O) I) (QQ (II O O) I) = QQ (II O O) I
 multQ (QQ (II O O) (T I)) (QQ (II O O) (T I)) = QQ (II O O) (T I)
 multQ (QQ n m) (QQ p q) = (QQ (multI n p) (multP m q))
 
+-- Equality of Fractions
+instance Eq QQ where
+  (QQ a b) == (QQ c d) = float_qq(QQ a b) == float_qq(QQ c d)
 
 ----------------
 -- Normalisation
@@ -288,8 +291,9 @@ main = do
     
     print "Integer Negation"
     print $ negI (II (S (S O)) (O)) -- $ II (O) (S (S O))
-    
-    --print "Integer Equality"
+
+    print "Integer Equality"
+    print $ (II (S (S O)) O) == (II (S (S (S (S O)))) (S (S O))) -- True
 
     print "Fraction Addition"
     print $ addQ (QQ (II (S (S O)) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S O)))) I) 
@@ -297,7 +301,8 @@ main = do
     print "Fraction Multiplication"
     print $ multQ (QQ (II (S (S (S O))) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S (S (S O) O))))))
 
-    --print "Fraction Equality"
+    print "Fraction Equality"
+    print $ (QQ (II (S (S (S O))) O) (I)) == (QQ (II (S (S (S (S (S (S O)))))) O) (T I)) -- True
 
     print "II Normalization"
     print $ normalizeI (II (S (S O)) (S O)) -- II (S O) O
