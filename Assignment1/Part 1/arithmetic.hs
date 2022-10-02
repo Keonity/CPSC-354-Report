@@ -49,6 +49,10 @@ nn_pp :: PP -> NN
 nn_pp I = S O
 nn_pp (T m) = S (nn_pp m)
 
+pp_nn :: NN -> PP
+pp_nn (S O) = I
+pp_nn (S n) = T (pp_nn(n))
+
 ii_pp :: PP -> II
 ii_pp I = II (S O) O
 ii_pp (T m) = II (S (nn_pp m)) O 
@@ -77,9 +81,11 @@ subN (S m) (T n) = subN m n
 
 divN :: NN -> PP -> NN
 divN O m = O
-divN (S m) I = S m
+divN m I = m 
 divN (S O) m = S O
-divN (S m) (T n) = divN (subN (S m) (T n)) (T n)
+divN (S m) (T n)
+  | (int_nn(S m) < int_pp(T n)) = S m
+  | otherwise = divN(subN(m) (n)) (T n)
 -- divN 7 4 = divN (subN 7 4) 4
 -- divN (subN 7 4) 4 = divN (subN 6 3) 3
 -- divN (subN 6 3) 3 = divN (subN 5 2) 2
@@ -90,18 +96,17 @@ divN (S m) (T n) = divN (subN (S m) (T n)) (T n)
 -- divN 3 4 = divN (subN 3 4) 4
 -- divN (subN 3 4) 4 = divN (subN 2 3) 4
 -- divN (subN 2 3) 4 = divN (subN 1 2) 4
--- divN (subN 1 2) 4 = divN (subN 0 2) 4
--- divN (subN 0 2) 4 = divN 0 4 = 0
+-- divN (subN 1 2) 4 = divN (subN 0 1) 4
+-- divN (subN 0 1) 4 = divN 0 4 = 0
 
 -- How to prevent divN from making (S n) go to zero?
 -- How to prevent divN the left side of the equation from reaching zero?
 
 modN :: NN -> PP -> NN
 modN O I = O
-modN O (T n) = O
-modN (S n) I = O
-modN (S n) (T m) = O
-
+modN O (T m) = O
+modN (S m) I = O
+modN (S m) (T n) = subN(nn_pp(T n)) (pp_nn(divN(S m) (T n)))
 ----------------
 -- II Arithmetic
 ----------------
@@ -270,16 +275,11 @@ main = do
     print $ subN (S (S (S (S (S O))))) (T (T I)) -- S (S O)
     print $ subN (S (S (S (S (S (S (S O))))))) (T (T (T I))) -- S (S (S O))
     
-
-    print "Incorrect divN tests"
-    print $ divN (S (S (S (S (S (S (S O))))))) (T (T (T I))) -- S (S (S O))
-    print $ divN (S (S (S O))) (T (T (T I))) -- S (S (S O))
-    print $ divN (S (S O)) (T (T I)) -- S (S O)
-    print "Correct divN tests"
-    print $ divN (S (S O)) I -- S (S O)
+    print "Natural Number Division"
     print $ divN (S (S (S (S (S O))))) (T (T (T I))) -- (S O)
-    print $ divN (S O) (T (T (T I))) -- S O
-    print $ divN (S O) I -- S O
+
+    print "Natural Number Modulo"
+    print $ divN (S (S (S (S (S O))))) (T (T I)) -- S (S O)
 
     print "NN to Integers"
     print $ nn_int 3 -- (S (S (S O)))
