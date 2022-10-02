@@ -209,8 +209,13 @@ ii_int x = II (S (nn_int(x-1))) O
 int_ii :: II -> Integer
 int_ii (II (O) (S O)) = -1
 int_ii (II O O) = 0
+int_ii (II (S O) (S O)) = 0
 int_ii (II (S O) O) = 1
-int_ii (II (S n) (S m)) = 1
+int_ii (II (S O) (S n)) = 1 - (int_nn(S n))
+int_ii (II (S n) (S O)) = int_nn(S n) - 1
+int_ii (II (S n) (S m)) = 1 + int_ii(II (n) (m))
+int_ii (II (S n) O) = 1 + int_ii(II (n) O)
+int_ii (II O (S n)) = int_ii(II (n) O) - 1
 
 -- POSITIVE NUMBERS
 
@@ -223,6 +228,10 @@ int_pp :: PP -> Integer
 int_pp I = 1
 int_pp (T I) = 2
 int_pp (T n) = 1 + int_pp(n)
+
+float_qq :: QQ -> Float
+float_qq (QQ (II (O) (O)) I) = 0.0
+float_qq (QQ n m) = (fromIntegral (int_ii(n)))/(fromIntegral (int_pp(m)))
 
 ----------------
 -- Normalisation by evaluation
@@ -306,6 +315,9 @@ main = do
 
     print "II to Integer"
     print $ int_ii(II (S (S (S O))) (S (S O))) -- 1
+
+    print "QQ to Float"
+    print $ float_qq(QQ (II (S (S O)) O) (T I)) -- 1/1
 
     print "II Normalization by Evaluation"
     print $ nbe (II (S (S O)) (S O)) -- II (S O) O
