@@ -214,13 +214,8 @@ ii_int x = II (S (nn_int(x-1))) O
 int_ii :: II -> Integer
 int_ii (II (O) (S O)) = -1
 int_ii (II O O) = 0
-int_ii (II (S O) (S O)) = 0
-int_ii (II (S O) O) = 1
-int_ii (II (S O) (S n)) = 1 - (int_nn(S n))
-int_ii (II (S n) (S O)) = int_nn(S n) - 1
-int_ii (II (S n) (S m)) = 1 + int_ii(II (n) (m))
-int_ii (II (S n) O) = 1 + int_ii(II (n) O)
-int_ii (II O (S n)) = int_ii(II (n) O) - 1
+int_ii (II (S n) O) = 1 + int_ii(II n O)
+int_ii (II (S n) (S m)) = int_ii(II (n) (m))
 
 -- POSITIVE NUMBERS
 
@@ -310,11 +305,23 @@ main = do
     print "II Normalization"
     print $ normalizeI (II (S (S O)) (S O)) -- II (S O) O
 
+    print "Integer to NN"
+    print $ nn_int(3) -- (S (S (S O)))
+
+    print "NN to Integer"
+    print $ int_nn(S (S (S O))) -- 3
+
     print "Integer to II"
-    print $ ii_int(3) -- $ (II (S (S (S O))) O)
+    print $ ii_int(3) -- (II (S (S (S O))) O)
 
     print "II to Integer"
     print $ int_ii(II (S (S (S O))) (S (S O))) -- 1
+
+    print "Integer to PP"
+    print $ pp_int(3) -- (T (T I))
+
+    print "PP to Integer"
+    print $ int_pp(T (T I)) -- 3
 
     print "QQ to Float"
     print $ float_qq(QQ (II (S (S O)) O) (T I)) -- 1/1
