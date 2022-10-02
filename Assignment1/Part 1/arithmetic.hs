@@ -283,3 +283,6 @@ main = do
     
     print "Fraction Addition"
     print $ addQ (QQ (II (S (S O)) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S O)))) I) 
+
+    print "Fraction Multiplication"
+    print $ multQ (QQ (II (S (S (S O))) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S (S (S O) O))))))
