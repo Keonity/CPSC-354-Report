@@ -201,7 +201,8 @@ int_nn (S n) = 1 + int_nn(n)
 -- INTEGERS & CUSTOM INTEGERS
 
 ii_int :: Integer -> II
-ii_int 1 = II O (S O)
+ii_int (-1) = II O (S O)
+ii_int 1 = II (S O) O
 ii_int 0 = II O O
 ii_int x = II (S (nn_int(x-1))) O
 
@@ -226,10 +227,9 @@ int_pp (T n) = 1 + int_pp(n)
 ----------------
 -- Normalisation by evaluation
 ----------------
-{-
+
 nbe :: II -> II
 nbe n = ii_int(int_ii(n))
--}
 
 ----------
 -- Testing
@@ -306,3 +306,6 @@ main = do
 
     print "II to Integer"
     print $ int_ii(II (S (S (S O))) (S (S O))) -- 1
+
+    print "II Normalization by Evaluation"
+    print $ nbe (II (S (S O)) (S O)) -- II (S O) O
