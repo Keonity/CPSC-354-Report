@@ -153,7 +153,7 @@ multI (II (S m) (S n)) (II (S p) (S q)) = II (addN(multN(S m) (S p)) (multN(S n)
 -- Negation: -(a-b)=(b-a)
 negI :: II -> II
 negI (II O O) = II O O
-negI (II (S n) O) = II (S n) O
+negI (II (S n) O) = II O (S n)
 negI (II O (S n)) = II (S n) O
 negI (II (S n) (S m)) = II (S m) (S n)
 
@@ -244,31 +244,23 @@ nbe n = ii_int(int_ii(n))
 -- Testing
 ----------
 main = do
+    print "NN Addition"
     print $ addN (S (S O)) (S O) -- S (S (S O))
+
+    print "NN Multiplication"
     print $ multN (S (S O)) (S (S (S O))) -- S (S (S (S (S (S O)))))
 
-    print $ addP I I -- (T I)
-    print $ addP (T I) I -- T (T I)
-    print $ addP I (T I) -- T (T I)
+    print "PP Addition"
     print $ addP (T (T I)) (T I) -- T (T (T (T I))))
     
-    print $ multP I I -- I
-    print $ multP I (T I) -- (T I)
-    print $ multP (T I) I -- (T I)
-    print $ multP (T I) (T I) -- T (T (T I))
+    print "PP Multiplication"
     print $ multP (T (T I)) (T I) -- T (T (T (T (T I))))
-    print $ multP (T I) (T (T I)) -- T (T (T (T (T I))))
     
-    print $ nn_pp I -- S (O)
+    print "PP to NN"
     print $ nn_pp (T I) -- S (S O)
-    
-    print $ ii_pp I -- II (S O) O
+
+    print "PP to II"
     print $ ii_pp (T I) -- II (S (S O)) O
-    
-    print $ subN (S (S O)) I -- S O
-    print $ subN (S (S O)) (T I) -- O
-    print $ subN (S (S (S (S (S O))))) (T (T I)) -- S (S O)
-    print $ subN (S (S (S (S (S (S (S O))))))) (T (T (T I))) -- S (S (S O))
     
     print "Natural Number Division"
     print $ divN (S (S (S (S (S O))))) (T (T (T I))) -- (S O)
@@ -278,29 +270,34 @@ main = do
 
     print "NN to Integers"
     print $ nn_int 3 -- (S (S (S O)))
+
     print "Integers to NN"
     print $ int_nn (S (S (S O))) -- 3
+
     print "PP to Integers"
     print $ pp_int 3 -- (T (T I))
+
     print "Integers to PP"
     print $ int_pp (T (T I)) -- 3
 
     print "Integer Addition"
-    print $ addI (II O O) (II (S (S O)) O) -- II (S (S O)) O
-    print $ addI (II O O) (II O (S (S O))) -- II O (S (S O))
-    print $ addI (II O O) (II (S O) (S (S O))) -- II (S O) (S (S O))
     print $ addI (II (S O) (S (S O))) (II (S (S (S O))) (S (S (S (S O))))) -- II (S (S (S (S O)))) (S (S (S (S (S (S O))))))
 
     print "Integer Multiplication"
-    print $ multI (II O O) (II (S O) (S (S O))) -- II O O 
-    print $ multI (II (S O) (S (S O))) (II O O) -- II O O 
     print $ multI (II (S O) (S (S O))) (II (S O) (S (S O))) -- II (S (S (S (S (S O))))) (S (S (S (S O))))
     
+    print "Integer Negation"
+    print $ negI (II (S (S O)) (O)) -- $ II (O) (S (S O))
+    
+    --print "Integer Equality"
+
     print "Fraction Addition"
     print $ addQ (QQ (II (S (S O)) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S O)))) I) 
 
     print "Fraction Multiplication"
     print $ multQ (QQ (II (S (S (S O))) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S (S (S O) O))))))
+
+    --print "Fraction Equality"
 
     print "II Normalization"
     print $ normalizeI (II (S (S O)) (S O)) -- II (S O) O
