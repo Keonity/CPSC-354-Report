@@ -199,17 +199,17 @@ int_nn (S O) = 1
 int_nn (S n) = 1 + int_nn(n)
 
 -- INTEGERS & CUSTOM INTEGERS
-{-
+
 ii_int :: Integer -> II
 ii_int 1 = II O (S O)
 ii_int 0 = II O O
-ii_int x = II (S (ii_int (x-1))) O
+ii_int x = II (S (nn_int(x-1))) O
 
-int_ii :: II -> II -> Integer
-int_ii II O (S O) = -1
-int_ii II O O = 0
-int_ii II n m = O */
--}
+int_ii :: II -> Integer
+int_ii (II (O) (S O)) = -1
+int_ii (II O O) = 0
+int_ii (II (S O) O) = 1
+int_ii (II (S n) (S m)) = 1
 
 -- POSITIVE NUMBERS
 
@@ -300,3 +300,9 @@ main = do
 
     print "II Normalization"
     print $ normalizeI (II (S (S O)) (S O)) -- II (S O) O
+
+    print "Integer to II"
+    print $ ii_int(3) -- $ (II (S (S (S O))) O)
+
+    print "II to Integer"
+    print $ int_ii(II (S (S (S O))) (S (S O))) -- 1
