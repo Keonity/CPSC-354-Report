@@ -96,6 +96,12 @@ divN (S m) (T n) = divN (subN (S m) (T n)) (T n)
 -- How to prevent divN from making (S n) go to zero?
 -- How to prevent divN the left side of the equation from reaching zero?
 
+modN :: NN -> PP -> NN
+modN O I = O
+modN O (T n) = O
+modN (S n) I = O
+modN (S n) (T m) = O
+
 ----------------
 -- II Arithmetic
 ----------------
@@ -172,6 +178,11 @@ multQ (QQ n m) (QQ p q) = (QQ (multI n p) (multP m q))
 -- Normalisation
 ----------------
 
+normalizeI :: II -> II
+normalizeI (II O O) = II O O
+normalizeI (II n O) = (II n O)
+normalizeI (II O n) = (II O n)
+normalizeI (II (S n) (S m)) = normalizeI (II n m)
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
@@ -286,3 +297,6 @@ main = do
 
     print "Fraction Multiplication"
     print $ multQ (QQ (II (S (S (S O))) O) (I)) (QQ (II (S (S O)) O) (I)) -- QQ (II (S (S (S (S (S (S O) O))))))
+
+    print "II Normalization"
+    print $ normalizeI (II (S (S O)) (S O)) -- II (S O) O
