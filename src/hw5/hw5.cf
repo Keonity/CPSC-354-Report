@@ -1,0 +1,5 @@
+EAbs.   Exp ::= "\\" Ident "." Exp ;  
+EApp.   Exp ::= Exp Exp1 ; 
+EVar.   Exp1 ::= Ident ;
+
+coercions Exp 1 ;
