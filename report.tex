@@ -279,7 +279,7 @@ We can express the number of times "hanoi" appears for any number n of disks wit
 $$numHanoi =2^{numDisks}-1$$
 \end{math}
 
-\subsection{Week 3}
+\subsection{Week 4}
 \begin{verbatim}
 Concrete Syntax Trees
 
@@ -381,7 +381,134 @@ Abstract Syntax Trees
            /   \    /  \ 
           2    3    4  5
 
+
 \end{verbatim}
+
+\subsection {Week 5}
+\begin{verbatim}
+1. x
+EVar
+  |
+Ident
+  |
+  x
+
+2. x x
+EApp
+|    \
+EVar  EVar
+|       |
+Ident   Ident
+|       |
+x       x
+
+3. x y
+EApp
+|    \
+EVar  EVar
+|       |
+Ident   Ident
+|       |
+x       y
+
+4. x y z
+EApp
+|    \
+EApp  EVar
+|   \     \
+EVar  EVar Ident
+|       |     |
+Ident Ident   z
+|       |
+x       y
+
+5. \ x.x
+EAbs
+|    \
+Ident EVar
+|      |
+x      Ident
+        |
+        x
+
+6, \ x.x x
+EAbs
+|    \
+Ident EApp
+|     |   \
+x    Evar   Evar
+      |     |
+      x     x
+
+7. (\ x . (\ y . x y)) (\ x.x) z
+EApp
+|      \
+EApp      EVar
+|      \          \
+EAbs      EAbs       Ident
+|     \    \    \           \
+Ident  EAbs Ident EVar        z
+|       |   \    \    \
+x       y   EApp  x   Ident
+             |  \         \
+             EVar  EVar     x
+             |       |
+             Ident Ident
+             |       |
+             x       y
+
+8. (\ x . (\ y . x y)) (\ x.x) z
+EApp
+|   -------------------\
+EApp                 EVar
+|   ---------\          -----------\
+EApp         EVar                  Ident
+|    \            -------------\      |
+EAbs    EAbs             Ident        c
+|   \      |   \             |
+Ident EVar Ident  EApp       b
+|      |     |     |    \
+x   Ident    y   EApp    EVar
+      |      |    \      |
+      a     EVar  EVar   Ident
+             |     |       |
+            Ident Ident    z
+             |     |
+             x     y
+
+Part 2
+
+1. (\x.x) a -> a
+
+2. \x.x a -> a (Short form)
+
+3. (\x. \y.x) a b -> 	a
+
+4. (\x.\y.y) a b -> b
+
+5. (\x.\y.x) a b c -> a
+
+6. (\x.\y.y) a b c -> b
+
+6. (\x.\y.x) a (b c) -> a
+
+7. (\x.\y.y) a (b c) -> (b c)
+
+8. (\x.\y.x) (a b) c -> (a b)
+
+9.  (\x.\y.y) (a b) c -> c
+
+10. (\x.\y.x) (a b c) -> (abc)
+
+11. (\x.\y.y) (a b c) -> Not enough arguments
+
+12. (\x.x)((\y.y)a)
+evalCBN(\x.x)((\y.y)a) =
+evalCBN(\x.x)((\y0.y0)a) =
+(\x.x)(a)
+
+\end{verbatim}
+
 \ldots
 
 \section{Project}
