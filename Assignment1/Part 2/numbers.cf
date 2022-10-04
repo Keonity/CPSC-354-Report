@@ -1,5 +1,11 @@
 Plus. Exp ::= Exp "+" Exp1 ;
-Times. Exp1 ::= Exp1 "*" Exp2 ;
+Minus. Exp ::= Exp "-" Exp1 ;
+IntDivision. Exp1 ::= Exp1 "/" Exp2 ; 
+Modulus. Exp1 ::= Exp1 "%" Exp2 ; 
+Times. Exp1 ::= Exp1 "*" Exp2 ; 
 Num. Exp2 ::= Integer ;
+Exponent. Exp3 ::= Exp2"^"Exp2 ;
+Negative. Exp3 ::= "-"Exp2 ;   
+Paranth. Exp3 ::= "(" Exp2 ")" ; 
 
-coercions Exp 2 ;
+coercions Exp 3 ;
