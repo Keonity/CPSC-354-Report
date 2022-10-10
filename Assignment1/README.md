@@ -13,3 +13,4 @@ I tested my programs with the example test cases outlined in https://github.com/
 Through this assignment, I've learned that CFGs(or at least the one in this assignment) aren't as complex as I thought they were. I also believe I learned a little more on ways to implement functions recursively, although this is still an area of growth for me. Some things I found interesting were how in Haskell, the / operator is used for mainly fractional integers as well as how I could use the abstract syntax generated with the CFG and BNFC in the Interpreter. 
 
 There isn't a specific way on how I connect the assignment with the theory other than that the assignment did enlighten me and educate me a lot more on Haskell, CFGs, recursive functions, and parsing. I appreciate the opportunity for hands-on practice, even though there were many bumps in the road along the way. Thank you to Prof. Kurz specifically for allowing me an extension on this assignment.
+

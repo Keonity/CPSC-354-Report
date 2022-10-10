@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  4 OCT 2022 00:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  9 OCT 2022 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -385,18 +385,36 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {C:/Users/Keoni/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] 
-[5] [6] [7] [8] [9] [10] (report.aux)
+[5] [6] [7] [8] [9]
+Overfull \hbox (139.23967pt too wide) in paragraph at lines 541--541
+[]\OT1/cmtt/m/n/10 (((\x. (\x2. ((\f2.\x2. f2 (f2 (f2 x2))) x) (((\f2.\x2. f2 (
+f2 (f2 x2))) x) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2))))))[] 
+ []
+
+
+Overfull \hbox (91.99008pt too wide) in paragraph at lines 541--541
+[]\OT1/cmtt/m/n/10 (((\x. (\x2. ((\x2. x (x (x x2)))) (((\f2.\x2. f2 (f2 (f2 x2
+))) x) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2))))))[] 
+ []
+
+
+Overfull \hbox (39.49054pt too wide) in paragraph at lines 541--541
+[]\OT1/cmtt/m/n/10 (((\x. (\x2. (x (x (x (((\f2.\x2. f2 (f2 (f2 x2))) x))))) ((
+(\f2.\x2. f2 (f2 (f2 x2))) x) x2)))))[] 
+ []
+
+[10] [11] (report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 0A67EA026996857CBBC074D26B6A2FBE;1312.
+(rerunfilecheck)             Checksum: 69D9C5E04103DA6F8B1E3C2867944885;1403.
  ) 
 Here is how much of TeX's memory you used:
- 10649 strings out of 478338
- 164949 string characters out of 2836700
+ 10652 strings out of 478338
+ 164986 string characters out of 2836700
  660055 words of memory out of 3000000
- 28923 multiletter control sequences out of 15000+600000
+ 28924 multiletter control sequences out of 15000+600000
  477897 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,6n,77p,295b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,6n,77p,557b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -410,9 +428,9 @@ Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
 /Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmtt10.pfb>
-Output written on report.pdf (10 pages, 173443 bytes).
+Output written on report.pdf (11 pages, 175608 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 188 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 113 words of extra memory for PDF output out of 10000 (max. 10000000)
 

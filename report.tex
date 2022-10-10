@@ -509,6 +509,37 @@ evalCBN(\x.x)((\y0.y0)a) =
 
 \end{verbatim}
 
+\subsection{Week 6}
+\begin{verbatim}
+
+(\exp . \two . \three . exp two three)
+(\m.\n. m n)
+(\f.\x. f (f x))
+(\f.\x. f (f (f x)))
+
+((\m.\n. m n) (\f.\x. f (f x)) (\f2.\x2. f2 (f2 (f2 x2))))
+=
+((\n. (\f.\x. f (f x)) n) (\f2.\x2. f2 (f2 (f2 x2))))
+=
+(((\f.\x. f (f x)) (\f2.\x2. f2 (f2 (f2 x2)))))
+=
+(((\x. (\f2.\x2. f2 (f2 (f2 x2))) ((\f2.\x2. f2 (f2 (f2 x2))) x))))
+=
+(((\x. (\x2. ((\f2.\x2. f2 (f2 (f2 x2))) x) (((\f2.\x2. f2 (f2 (f2 x2))) x) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2))))))
+=
+(((\x. (\x2. ((\x2. x (x (x x2)))) (((\f2.\x2. f2 (f2 (f2 x2))) x) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2))))))
+=
+(((\x. (\x2. (x (x (x (((\f2.\x2. f2 (f2 (f2 x2))) x))))) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2)))))
+=
+(((\x. (\x2. (x (x (x (((\x2. x (x (x x2)))))))) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2)))))
+=
+(((\x. (\x2. (x (x (x (((x (x (x (((\f2.\x2. f2 (f2 (f2 x2))) x) x2)))))))))))))
+=
+(((\x. (\x2. (x (x (x (((x (x (x (((\x2. x (x (x x2)))) x2)))))))))))))
+=
+(\x.(\x2.(x(x(x(x(x(x(x(x(x x2))x2)))))))))
+\end{verbatim}
+
 \ldots
 
 \section{Project}
@@ -518,6 +549,9 @@ Introductory remarks ...
 The following structure should be suitable for most practical projects. 
 
 \subsection{Specification}
+
+For my course project, I intend to learn the basics of HTML and CSS and use what I learn to create a portfolio of my projects, which I can use in job searches. The portfolio will use elements from both languages to make the website look and feel intuitive as well as aesthetically pleasing. The website will contain multiple pages(such as a page for my resume, a page with all of my digital art projects, etc.) that the user can access via hyperlinks. The website will also contain a tutorial on the basics of HTML and CSS.
+
 \subsection{Prototype}
 \subsection{Documentation}
 \subsection{Critical Appraisal}
