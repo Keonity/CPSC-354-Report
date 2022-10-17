@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  16 OCT 2022 22:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  16 OCT 2022 23:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -464,7 +464,7 @@ Here is how much of TeX's memory you used:
  29280 multiletter control sequences out of 15000+600000
  477897 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,6n,77p,557b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,6n,77p,793b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -478,7 +478,7 @@ Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
 /Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmtt10.pfb>
-Output written on report.pdf (14 pages, 512162 bytes).
+Output written on report.pdf (14 pages, 512504 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  33 named destinations out of 1000 (max. 500000)
