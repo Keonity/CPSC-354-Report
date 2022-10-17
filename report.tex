@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -539,6 +541,83 @@ evalCBN(\x.x)((\y0.y0)a) =
 =
 (\x.(\x2.(x(x(x(x(x(x(x(x(x x2))x2)))))))))
 \end{verbatim}
+
+\subsection{Week 7}
+\begin{verbatim}
+
+evalCBN: Bound variable
+Binder: evalCBN :: Exp -> Exp
+Scope: 
+evalCBN (EApp e1 e2) = case (evalCBN e1) of
+    (EAbs i e3) -> evalCBN (subst i e2 e3)
+    e3 -> EApp e3 e2
+evalCBN x = x 
+
+e1: Bound variable
+Binder: (EApp e1 e2)
+Scope: 
+(EApp e1 e2) = case (evalCBN e1) of
+    (EAbs i e3) -> evalCBN (subst i e2 e3)
+    e3 -> EApp e3 e2
+
+e2: Bound variable
+Binder: (EApp e1 e2)
+Scope: 
+(EApp e1 e2) = case (evalCBN e1) of
+    (EAbs i e3) -> evalCBN (subst i e2 e3)
+    e3 -> EApp e3 e2
+
+e3: Free variable
+
+subst: Bound variable
+Binder: subst :: Id -> Exp -> Exp -> Exp
+Scope: 
+subst id s (EAbs id1 e1) = 
+    let f = fresh (EAbs id1 e1)
+        e2 = subst id1 (EVar f) e1 in 
+        EAbs f (subst id s e2)
+
+id: Free variable
+
+s: Free variable
+
+id1: Bound variable
+Binder: (EAbs id1 e1)
+Scope: 
+let f = fresh (EAbs id1 e1)
+     e2 = subst id1 (EVar f) e1 in  
+     EAbs f (subst id s e2)
+
+e1: Bound variable
+Binder (Eabs id1 e1)
+Scope: 
+let f = fresh (EAbs id1 e1)
+     e2 = subst id1 (EVar f) e1 in 
+     EAbs f (subst id s e2)
+
+f: Bound variable
+Binder: let f = fresh (EAbs id1 e1)
+Scope: 
+e2 = subst id1 (EVar f) e1 in 
+EAbs f (subst id s e2)
+
+3. '(\x\y.x) y z'
+(\x\y.x) (y z) = evalCBN (subst i (\x(\y.x))) y z
+(Line 26 and 27)
+
+evalCBN (subst i (\x(\y.x))) y z = evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) 
+(Line 49)
+
+evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) = evalCBN (EApp (\x(\y.x)) (\x(\y.x))) 
+(Line 47)
+
+\end{verbatim}
+
+4. 
+
+\includegraphics [scale=0.50]{ARS1}
+
+\includegraphics [scale=0.50]{ARS2}	
 
 \ldots
 

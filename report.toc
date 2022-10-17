@@ -6,9 +6,10 @@
 \contentsline {subsection}{\numberline {2.4}Week 4}{5}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Week 5}{7}{subsection.2.5}%
 \contentsline {subsection}{\numberline {2.6}Week 6}{10}{subsection.2.6}%
-\contentsline {section}{\numberline {3}Project}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Specification}{10}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Prototype}{11}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Documentation}{11}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Critical Appraisal}{11}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Conclusions}{11}{section.4}%
+\contentsline {subsection}{\numberline {2.7}Week 7}{10}{subsection.2.7}%
+\contentsline {section}{\numberline {3}Project}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Specification}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Prototype}{14}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Documentation}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Critical Appraisal}{14}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Conclusions}{14}{section.4}%
