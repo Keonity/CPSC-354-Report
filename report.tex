@@ -619,6 +619,16 @@ evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) = evalCBN (EApp (\x
 
 \includegraphics [scale=0.50]{ARS2}	
 
+\subsection{Week 8}
+
+1. The ARS does not terminate because the rewrite rules ba -> ab and ab -> ba allow for an infinite loop that doesn't terminate. There is no measure function for this ARS. 
+
+2. The normal forms are an empty word, a, and b. 
+
+3.We are unable to change this ARS to have unique normal forms while maintaining the same equivalence relations because the relation onf ba -> ab and ab -> ba remaining in the ARS do not allow for unique normal forms. 
+
+4. The normal forms here mean that two of the same character are rewritten to just one of the characters and two different characters are rewritten in reverse order. This function could be used for taking the square root of numbers. This is because the square root of two numbers that are the same is just the number before they are multiplied together, and the square root of two different numbers multiplied together equals the square root of those two numbers multiplied together in reverse order.
+
 \ldots
 
 \section{Project}
