@@ -652,31 +652,15 @@ Milestone 3 is due by December 16th
 4. Finish the project by creating a tutorial page that can educate others on how to use HTML, CSS, and JavaScript.
 This final milestone and submission is due on the Sunday at the end of finals week.
 
-ARS Exercises
+ARS Exercise
 
-1. 
+1.
 ba -> ab
 ab -> ba
 ac -> ca
 ca -> ac
 bc -> cb
 cb -> bc
-
-Terminating? No, there are multiple ways to have an infinite loop here.
-
-There are no normal forms in this ARS.
-
-We cannot change the ARS to have unique normal forms while maintaining the same equivalence relations because equivalence relations allow for the symmetric property(If ab -> ba, then ba -> ab) which allows for infinite loops and therefore, a lack of unique normal forms.
-
-Equivalence Classes: ab, ba, ac, ca, bc, cb
-
-We can characterize equivalence classes in this case by normal forms. 
-
-Invariants: Number of a's, number of b's, number of c's, number of a's = number of b's = number of c's	
-
-The ARS is not confluent because none of the one-step computations contain the same element, meaning that it is impossible for two elements to be joinable, and therefore it is impossible for the ARS to be confluent.
-
-2. 
 aa -> b
 ab -> c
 ac ->  
@@ -684,19 +668,17 @@ bb ->
 cb -> a
 cc -> b
 
-This ARS is terminating. There are no infinite loops.
+This ARS is not terminating because there is possibility for infinite loops.
 
 The normal forms in this ARS are the empty word, a, b, and c.
 
-This ARS has unique normal forms. Every element on the left-hand side is specified to only have one element that it computes to on the right-hand side.
-
-Equivalence Classes: (ac, bb), (aa, cb), (ab), (cc)
-
 We can characterize equivalence classes in this case by normal forms. 
 
-Invariants: None
+Equivalence Classes: ab, ba, ac, ca, bc, cb, (ac, bb), (aa, cb), (ab), (cc), empty word
 
-The ARS is not confluent because all of the one-step computations involve a two-letter word computing to a one-letter word or the empty word and never the other way around.
+This ARS is not confluent because of the only one-step computations that compute to the same element (aa -> b and cc -> b, ac -> empty word, bb -> empty word), none of the elements they compute to lead back to them.
+
+
 \end{verbatim}
 
 \ldots
