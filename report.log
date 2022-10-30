@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  22 OCT 2022 16:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  30 OCT 2022 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -340,7 +340,8 @@ tex.def
 File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count291
 \l__pdf_internal_box=\box55
-) (report.aux)
+)
+No file report.aux.
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
@@ -388,15 +389,13 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring ON on input line 60.
- (report.out) (report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
 
 \c@lstlisting=\count298
 LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
 
-
-(C:\Users\Keoni\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+ (C:\Users\Keoni\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
@@ -405,14 +404,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
 (C:\Users\Keoni\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(report.toc)
+No file report.toc.
 \tf@toc=\write4
 \openout4 = `report.toc'.
 
- [1
+[1
 
-{C:/Users/Keoni/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3] [4] 
-[5] [6] [7] [8] [9]
+{C:/Users/Keoni/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
+[3] [4] [5] [6] [7] [8] [9]
 Overfull \hbox (139.23967pt too wide) in paragraph at lines 543--543
 []\OT1/cmtt/m/n/10 (((\x. (\x2. ((\f2.\x2. f2 (f2 (f2 x2))) x) (((\f2.\x2. f2 (
 f2 (f2 x2))) x) (((\f2.\x2. f2 (f2 (f2 x2))) x) x2))))))[] 
@@ -442,51 +441,133 @@ Overfull \hbox (49.99045pt too wide) in paragraph at lines 614--614
  = evalCBN (EApp (\x(\y.x)) (\x(\y.x)))[] 
  []
 
-[11]
-<./images//ARS1.jpg, id=136, 744.53156pt x 963.6pt>
+<./images//ARS1.jpg, id=65, 744.53156pt x 963.6pt>
 File: ./images//ARS1.jpg Graphic file (type jpg)
 <use ./images//ARS1.jpg>
 Package pdftex.def Info: ./images//ARS1.jpg  used on input line 618.
 (pdftex.def)             Requested size: 372.26486pt x 481.79883pt.
-<./images//ARS2.jpg, id=137, 744.53156pt x 963.6pt>
+[11]
+<./images//ARS2.jpg, id=70, 744.53156pt x 963.6pt>
 File: ./images//ARS2.jpg Graphic file (type jpg)
 <use ./images//ARS2.jpg>
 Package pdftex.def Info: ./images//ARS2.jpg  used on input line 620.
 (pdftex.def)             Requested size: 372.26486pt x 481.79883pt.
- [12 <./images//ARS1.jpg>] [13 <./images//ARS2.jpg>] [14] (report.aux)
+ [12 <./images//ARS1.jpg>]
+Overfull \hbox (427.98715pt too wide) in paragraph at lines 631--631
+[]\OT1/cmtt/m/n/10 1. The ARS does not terminate because the rewrite rules ba -
+> ab and ab -> ba allow for an infinite loop that doesn't terminate. There is n
+o measure function for this ARS.[] 
+ []
+
+
+Overfull \hbox (669.48505pt too wide) in paragraph at lines 631--631
+[]\OT1/cmtt/m/n/10 3.We are unable to change this ARS to have unique normal for
+ms while maintaining the same equivalence relations because the relation onf ba
+ -> ab and ab -> ba remaining in the ARS do not allow for unique normal forms.[
+] 
+ []
+
+
+Overfull \hbox (2155.22209pt too wide) in paragraph at lines 631--631
+[]\OT1/cmtt/m/n/10 4. The normal forms here mean that two of the same character
+ are rewritten to just one of the characters and two different characters are r
+ewritten in reverse order. This function could be used for taking the square ro
+ot of numbers. This is because the square root of two numbers that are the same
+ is just the number before they are multiplied together, and the square root of
+ two different numbers multiplied together equals the square root of those two 
+numbers multiplied together in reverse order.[] 
+ []
+
+[13 <./images//ARS2.jpg>]
+Overfull \hbox (7.99081pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 1. Get a grasp on HTML by creating a general portfolio websi
+te. The website should include:[] 
+ []
+
+
+Overfull \hbox (191.73921pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 - A landing page with links to the pages described above as 
+well as contact information and hyperlinks to LinkedIn and GitHub.[] 
+ []
+
+
+Overfull \hbox (128.73976pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 4. Finish the project by creating a tutorial page that can e
+ducate others on how to use HTML, CSS, and JavaScript.[] 
+ []
+
+
+Overfull \hbox (947.73262pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 We cannot change the ARS to have unique normal forms while m
+aintaining the same equivalence relations because equivalence relations allow f
+or the symmetric property(If ab -> ba, then ba -> ab) which allows for infinite
+ loops and therefore, a lack of unique normal forms.[] 
+ []
+
+
+Overfull \hbox (65.74031pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 Invariants: Number of a's, number of b's, number of c's, num
+ber of a's = number of b's = number of c's
+ []
+
+
+Overfull \hbox (658.98514pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 The ARS is not confluent because none of the one-step comput
+ations contain the same element, meaning that it is impossible for two elements
+ to be joinable, and therefore it is impossible for the ARS to be confluent.[] 
+
+ []
+
+[14]
+Overfull \hbox (322.98807pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 This ARS has unique normal forms. Every element on the left-
+hand side is specified to only have one element that it computes to on the righ
+t-hand side.[] 
+ []
+
+
+Overfull \hbox (433.2371pt too wide) in paragraph at lines 700--700
+[]\OT1/cmtt/m/n/10 The ARS is not confluent because all of the one-step computa
+tions involve a two-letter word computing to a one-letter word or the empty wor
+d and never the other way around.[] 
+ []
+
+[15] [16] (report.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 
 Package rerunfilecheck Warning: File `report.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: 9F443D32E5E94BCABA4F5158AFACDA47;1494
-(rerunfilecheck)             After:  02F496B6F853B2F7BFAB64950DD08FEC;1585.
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  EB2F79E110843F700C2D0BCCFE47A165;1676.
  ) 
 Here is how much of TeX's memory you used:
- 11037 strings out of 478338
- 172088 string characters out of 2836700
- 663838 words of memory out of 3000000
- 29280 multiletter control sequences out of 15000+600000
- 477897 words of font info for 62 fonts, out of 8000000 for 9000
+ 11014 strings out of 478338
+ 171597 string characters out of 2836700
+ 661838 words of memory out of 3000000
+ 29263 multiletter control sequences out of 15000+600000
+ 477589 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,6n,77p,793b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,6n,77p,798b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmbx9.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Keoni/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Keoni/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Keoni/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Keoni/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/
-Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
-/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmtt10.pfb>
-Output written on report.pdf (14 pages, 514034 bytes).
+cmbx12.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx9.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Keoni/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Keoni/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Keoni/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Ke
+oni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
+/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt1
+0.pfb>
+Output written on report.pdf (16 pages, 494934 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

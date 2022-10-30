@@ -620,7 +620,7 @@ evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) = evalCBN (EApp (\x
 \includegraphics [scale=0.50]{ARS2}	
 
 \subsection{Week 8}
-
+\begin{verbatim}
 1. The ARS does not terminate because the rewrite rules ba -> ab and ab -> ba allow for an infinite loop that doesn't terminate. There is no measure function for this ARS. 
 
 2. The normal forms are an empty word, a, and b. 
@@ -628,6 +628,76 @@ evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) = evalCBN (EApp (\x
 3.We are unable to change this ARS to have unique normal forms while maintaining the same equivalence relations because the relation onf ba -> ab and ab -> ba remaining in the ARS do not allow for unique normal forms. 
 
 4. The normal forms here mean that two of the same character are rewritten to just one of the characters and two different characters are rewritten in reverse order. This function could be used for taking the square root of numbers. This is because the square root of two numbers that are the same is just the number before they are multiplied together, and the square root of two different numbers multiplied together equals the square root of those two numbers multiplied together in reverse order.
+\end{verbatim}
+
+\subsection{Week 9}
+\begin{verbatim}
+Portfolio Website Project Milestones
+1. Get a grasp on HTML by creating a general portfolio website. The website should include: 
+- A page for projects
+- A page with my resume
+- A landing page with links to the pages described above as well as contact information and hyperlinks to LinkedIn and GitHub.
+Milestone 1 is due by November 13th
+
+2. Get a grasp on CSS by stylizing the website created in HTML. Make things look nice by:
+- Incorporate alignment, different text styles(heading, subheading, etc)
+- Having a general theme in terms of color and font
+- Incorporate at least one basic animation per page
+Milestone 2 is due by November 30th
+
+3. Get a grasp on JavaScript. Do this by: 
+- Implementing the calculator project that we did in this class
+Milestone 3 is due by December 16th
+
+4. Finish the project by creating a tutorial page that can educate others on how to use HTML, CSS, and JavaScript.
+This final milestone and submission is due on the Sunday at the end of finals week.
+
+ARS Exercises
+
+1. 
+ba -> ab
+ab -> ba
+ac -> ca
+ca -> ac
+bc -> cb
+cb -> bc
+
+Terminating? No, there are multiple ways to have an infinite loop here.
+
+There are no normal forms in this ARS.
+
+We cannot change the ARS to have unique normal forms while maintaining the same equivalence relations because equivalence relations allow for the symmetric property(If ab -> ba, then ba -> ab) which allows for infinite loops and therefore, a lack of unique normal forms.
+
+Equivalence Classes: ab, ba, ac, ca, bc, cb
+
+We can characterize equivalence classes in this case by normal forms. 
+
+Invariants: Number of a's, number of b's, number of c's, number of a's = number of b's = number of c's	
+
+The ARS is not confluent because none of the one-step computations contain the same element, meaning that it is impossible for two elements to be joinable, and therefore it is impossible for the ARS to be confluent.
+
+2. 
+aa -> b
+ab -> c
+ac ->  
+bb ->
+cb -> a
+cc -> b
+
+This ARS is terminating. There are no infinite loops.
+
+The normal forms in this ARS are the empty word, a, b, and c.
+
+This ARS has unique normal forms. Every element on the left-hand side is specified to only have one element that it computes to on the right-hand side.
+
+Equivalence Classes: (ac, bb), (aa, cb), (ab), (cc)
+
+We can characterize equivalence classes in this case by normal forms. 
+
+Invariants: None
+
+The ARS is not confluent because all of the one-step computations involve a two-letter word computing to a one-letter word or the empty word and never the other way around.
+\end{verbatim}
 
 \ldots
 
@@ -639,7 +709,7 @@ The following structure should be suitable for most practical projects.
 
 \subsection{Specification}
 
-For my course project, I intend to learn the basics of HTML and CSS, and JavaScript and use what I learn to create a portfolio of my projects, which I can use in job searches. The portfolio will use elements from both languages to make the website look and feel intuitive as well as aesthetically pleasing. I intend to recreate the calculator project to the best of my abilities from this course to test my understanding of the background needed to make the calculator as well as my understanding of JavaScript, HTML, and CSS. The website will contain multiple pages(such as a page for my resume, a page with all of my digital art projects, etc.) that the user can access via hyperlinks. The website will also contain a tutorial on the basics of HTML and CSS.
+For my course project, I intend to learn the basics of HTML and CSS, and JavaScript and use what I learn to create a portfolio of my projects, which I can use in job searches. The portfolio will use elements from all three languages to make the website look and feel intuitive as well as aesthetically pleasing. I intend to recreate the calculator project to the best of my abilities from this course to test my understanding of the background needed to make the calculator as well as my understanding of JavaScript, HTML, and CSS. The website will contain multiple pages(such as a page for my resume, a page with all of my digital art projects, etc.) that the user can access via hyperlinks. The website will also contain a tutorial on the basics of HTML and CSS.
 
 \subsection{Prototype}
 \subsection{Documentation}
