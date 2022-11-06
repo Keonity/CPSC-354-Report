@@ -24,6 +24,8 @@ evalCBN (EIf e1 e2 e3 e4) =
     if e1 == e2
         then evalCBN (e3)
         else evalCBN (e4) 
+evalCBN (ELet i e1 e2) = evalCBN (subst i e1 e2)
+evalCBN (EMinusOne (ENatS e1)) = e1
 
 --evalCBN (EApp e1 (ENatS e2)) = evalCBN (subst i e3 (ENatS e4))
 --    (EAbs i (ENatS e3)) -> evalCBN (subst i e3 e4)
@@ -60,6 +62,8 @@ subst id s (EIf e1 e2 e3 e4) =
     if e1 == e2
         then subst id s e3
         else subst id s e4
+subst id s (ELet i e1 e2) = subst id s (evalCBN (ELet i e1 e2))
+subst id s (EMinusOne e1) = e1
 
 --subst id s ENat0 = ENat0
 -- subst id s e1 = EApp s e1
