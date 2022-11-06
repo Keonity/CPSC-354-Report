@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  30 OCT 2022 13:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=pdflatex 2022.10.2)  6 NOV 2022 10:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -442,12 +442,12 @@ Overfull \hbox (49.99045pt too wide) in paragraph at lines 614--614
  = evalCBN (EApp (\x(\y.x)) (\x(\y.x)))[] 
  []
 
-<./images//ARS1.jpg, id=146, 744.53156pt x 963.6pt>
+<./images//ARS1.jpg, id=151, 744.53156pt x 963.6pt>
 File: ./images//ARS1.jpg Graphic file (type jpg)
 <use ./images//ARS1.jpg>
 Package pdftex.def Info: ./images//ARS1.jpg  used on input line 618.
 (pdftex.def)             Requested size: 372.26486pt x 481.79883pt.
-<./images//ARS2.jpg, id=147, 744.53156pt x 963.6pt>
+<./images//ARS2.jpg, id=152, 744.53156pt x 963.6pt>
 File: ./images//ARS2.jpg Graphic file (type jpg)
 <use ./images//ARS2.jpg>
 Package pdftex.def Info: ./images//ARS2.jpg  used on input line 620.
@@ -506,13 +506,13 @@ tations that compute to the same element (aa -> b and cc -> b, ac -> empty word
 
 [14] [15] (report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: EB2F79E110843F700C2D0BCCFE47A165;1676.
+(rerunfilecheck)             Checksum: CC39FA85564B3E1CCA10726E810D9E05;1773.
  ) 
 Here is how much of TeX's memory you used:
- 11041 strings out of 478338
- 172141 string characters out of 2836700
+ 11043 strings out of 478338
+ 172173 string characters out of 2836700
  663838 words of memory out of 3000000
- 29282 multiletter control sequences out of 15000+600000
+ 29283 multiletter control sequences out of 15000+600000
  477897 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,6n,77p,798b,584s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -529,9 +529,9 @@ Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
 /Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb><C:/Users/Keoni/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmtt10.pfb>
-Output written on report.pdf (15 pages, 516680 bytes).
+Output written on report.pdf (15 pages, 518515 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 147 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
