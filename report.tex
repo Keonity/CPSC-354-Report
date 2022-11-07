@@ -686,10 +686,10 @@ This ARS is not confluent because of the only one-step computations that compute
 
 \begin{verbatim}
 fix_F2 = \y.\n. if n == 0 then 1 else f(2-1)*2(fix_F2)
-= fix_F1 * 2
-= ((fix_F0 * 1) * 2)
-= ((1) * 2)
-= 2
+\y.\n. if n == 0 then 1 else f(2-1)*2(fix_F2) = fix_F1 * 2
+fix_F1 * 2 = ((fix_F0 * 1) * 2)
+((fix_F0 * 1) * 2) = ((1) * 2)
+((1) * 2) = 2
 \end{verbatim}
 
 \ldots
