@@ -1,0 +1,43 @@
+1 less_equal 2
+
+;;
+
+2 less_equal 1
+
+;;
+
+(\x.x) 1 less_equal (\y.y) 2
+
+;;
+
+hd one:two
+
+;;
+
+hd one:two:#
+
+;;
+
+hd (one:two):#
+
+;;
+
+hd (one:two:#):#
+
+;;
+
+(hd one:two:#):#
+
+;;
+
+tl one:two
+
+;;
+
+tl one:two:#
+
+;;
+
+tl one:(two:#)
+
+;;
