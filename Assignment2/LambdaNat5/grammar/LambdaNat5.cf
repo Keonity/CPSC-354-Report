@@ -25,7 +25,7 @@ ECons.     Exp15 ::= Exp16 ":" Exp15 ;
 
 EInt.      Exp16 ::= Integer ; 
 
-EVar.      Exp17 ::= Id ;  
+EVar.      Exp17 ::= Id ;
 
 internal   EFix.      Exp5 ::= "fix" Exp ;  -- only for abstract syntax
 
