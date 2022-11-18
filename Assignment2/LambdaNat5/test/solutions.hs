@@ -28,6 +28,14 @@ reverse :: [a] -> [a]
 reverse [] = []
 reverse (x:xs) = (reverse (xs)) ++ [x]
 
+weave :: [Integer] -> [Integer] -> [Integer]
+weave [] [] = []
+weave (x:xs) [] = [x] ++ weave(xs) []
+weave [] (y:ys) = [y] ++ weave[] (ys) 
+weave (x:xs) (y:ys) = 
+    if (x < y) then [x] ++ weave(xs) (y:ys)
+    else [y] ++ weave(x:xs) (ys)
+
 main = do
     --putStrLn ""
     print $ is_empty [] 
@@ -38,3 +46,4 @@ main = do
     print $ even [1,2,3]
     print $ even [1,2,3,4]
     print $ reverse [1,2,3,4]
+    print $ weave [0,1,4] [2,3,5]
