@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# HLINT ignore "Use camelCase" #-}
 module Main where
-import Prelude hiding (even, length)
+import Prelude hiding (reverse, even, length)
 
 is_empty :: [a] -> Bool
 is_empty [] = True
@@ -24,6 +24,10 @@ even a =
     if mod (length(a)) (2) == 0 then True
     else False
 
+reverse :: [a] -> [a]
+reverse [] = []
+reverse (x:xs) = (reverse (xs)) ++ [x]
+
 main = do
     --putStrLn ""
     print $ is_empty [] 
@@ -33,3 +37,4 @@ main = do
     print $ length [1,2,3]
     print $ even [1,2,3]
     print $ even [1,2,3,4]
+    print $ reverse [1,2,3,4]
