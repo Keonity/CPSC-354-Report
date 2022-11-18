@@ -54,3 +54,5 @@ main = do
     print $ weave [2,3,5] [0,1,4]
     print $ weave [-1,5,0] []
     print $ weave [5,-1,0] []
+    print $ weave [1,-1,2] [5,3,-2]
+    print $ weave [0,1,2] [-1,5,-5]
