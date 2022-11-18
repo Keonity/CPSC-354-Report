@@ -1,0 +1,30 @@
+// reverse
+
+//(let rec f = (\x. (if x = () then :f(hd x) else #)) in f a:b:c:#)
+
+//(let x = a:b:c:# in (let rec f = (\x. (tl x):(hd x)) in f x))
+
+//let rec f = (\x. f(hd x)) in f a:b:c:#
+
+//(let x = a:b:c:# in (let y = # in (let rec f = (\x. hd(x):y f(tl x)) in f x)))
+// issue: recursion doesnt end on f(hd x) or f(tl x)
+
+//let rec f = (\x. if x = # then 1 else f(tl x):(hd x)) in f a:#
+
+let rec f = (\x. if x = # then # else (f(tl x)):(hd x)) in f a:b:c:#
+// THE FUNCTION ABOVE IS ABLE TO STOP INFINITE LOOP ON TL X HD x
+
+//let rec f = \x. f(tl x) in f a:b:c:#
+
+//let f = \x. hd x in f #
+
+// note: we do not have a type checker, # must be at the end of the list by def of lists
+// idea: let y = list we construct using reverse, append # to end of y if we pass # into the function)
+
+//let rec f = (\x. (if (tl x) = # then (f (tl x)):# else )))
+
+//(let rec f = (\x. (hd x):(f (tl x))) in f a:b:c:#)
+
+;;
+
+// code to open quiz = concurrency

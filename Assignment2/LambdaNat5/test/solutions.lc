@@ -2,30 +2,77 @@
 
 // if list = ENil then 1 else 0
 
-let f = (\x. if x = # then 1 else 0) in f a:b:#
+let is_empty = (\x. if x = # then 1 else 0) 
+in
+is_empty a:b:#
 
 ;;
 
 // fib
 
-// let rec f = (\x. (if x = 0 then 0 else (if x = 1 then 1 else f(x-1)+f(x-2)))) in f n
+// let rec fib = (\x. (if x = 0 then 0 else (if x = 1 then 1 else fib(x-1)+fib(x-2)))) in f n
 
-let rec f = (\x. (if x = 0 then 0 else (if x = 1 then 1 else f(x-1)+f(x-2)))) in f 14
+let rec fib = (\x. (if x = 0 then 0 else (if x = 1 then 1 else fib(x-1)+fib(x-2))))
+in
+fib 14
 
 ;;
 
 // length
 
-// let rec f = (\x. (if (tl x = #) then 0 else 1))) in f a:b:c:#
+// let rec length = (\x. (if (tl x = #) then 0 else 1))) in length a:b:c:#
 
-let rec f = (\x. (if (hd x) = # then 0 else 1+f(tl x))) in f a:#
+let rec length = (\x. (if (hd x) = # then 0 else 1+length(tl x))) 
+in 
+length a:#
 
 ;;
 
 // even 
 
-let rec f = (\x. (if (hd x) = # then 1 else 1-f(tl x))) in f a:b:c:d:e:f:#
+let rec even = (\x. (if (hd x) = # then 1 else 1-even(tl x))) 
+in 
+even a:b:c:d:e:f:#
 
 ;;
 
+// reverse
+
+//let rec f = (\x. (if (hd x) = # then # else  then f(hd x):#) in f a:b:c:#
+
+//let rec f = (\x. (if (hd x) = # then x else f(hd x)):#) in f a:b:c:#
+
+//let rec f = (\x. (if (hd x) = # then x else ((hd x):f(tl x)))):# in f a:b:c:#
+
+//let rec f = (\x. (hd f(tl x)):#) in f a:b:c:#
+
+//let rec f = (\x. ((f (tl x)):(hd x))) in f a:b:c:#
+
+//let f = (\x. (tl x):(hd x)) in f a:b:c:#
+
+//let rec f = (\x. (if ((tl x) = #) then # else (f (tl x)):(hd x))) in f a:b:c:#
+
+
+//(let rec f = (\x. (if x = # then 0 else f (hd (tl x)))) in f a:b:c:#):#
+
+//let rec f = (\x. )
+
+//(let rec f = (\x. (if x = # then x else f (hd x))) in f a:b:c:#)
+
+//a:b:c:#
+
+// [Abstract Syntax]
+
+// Prog [ERec (Id "f") (EAbs (Id "x") (EIf (EVar (Id "x")) ENil ENil (EApp (EVar (Id "f")) (EHd (EVar (Id "x")))))) (EApp (EVar (Id "f")) (ECons (EVar (Id "a")) (ECons (EVar (Id "b")) (EVar (Id "c")))))]
+
+//;;
+
 // code to open quiz = concurrency
+
+// weave
+
+let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):weave((tl x) (tl y)) else (hd y):f((tl x) (tl y)))
+in
+weave 0:1:4:# 2:3:5:#
+
+//;;
