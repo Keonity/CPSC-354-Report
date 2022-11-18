@@ -14,8 +14,8 @@ Wrong output for weave: ((fix \ weavexy0xy0y000y00000xy0y000y00000y0000000y00000
 
 I came up with the test cases in solutions.lc(some are commented so that the program will run if you test it, because multiple test cases of the same function cannot run alongside each other without cluttering the file) by trying to come up with at least one test case for every different kind of valid input the user is able to use with each function. This means for example, test cases I would have come up with for the is_empty function is testing the following input: 
 
-a:b:c:# to see if it can work on a normal list
-Simply # to see if it can work on an empty list
+# a:b:c:# to see if it can work on a normal list
+# Simply # to see if it can work on an empty list
 
 I would not have come up with a test case for #:c:b:a because that is not a list according to the definition of a list.
 
