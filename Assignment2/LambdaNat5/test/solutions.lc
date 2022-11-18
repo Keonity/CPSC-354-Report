@@ -5,6 +5,8 @@
 let is_empty = (\x. if x = # then 1 else 0) 
 in
 is_empty a:b:#
+//is_empty #
+
 
 ;;
 
@@ -15,6 +17,8 @@ is_empty a:b:#
 let rec fib = (\x. (if x = 0 then 0 else (if x = 1 then 1 else fib(x-1)+fib(x-2))))
 in
 fib 14
+//fib 0
+
 
 ;;
 
@@ -24,7 +28,8 @@ fib 14
 
 let rec length = (\x. (if (hd x) = # then 0 else 1+length(tl x))) 
 in 
-length a:#
+length a:b:c:#
+//length #
 
 ;;
 
@@ -33,6 +38,7 @@ length a:#
 let rec even = (\x. (if (hd x) = # then 1 else 1-even(tl x))) 
 in 
 even a:b:c:d:e:f:#
+//even a:b:c:d:e:#
 
 ;;
 
@@ -62,17 +68,14 @@ even a:b:c:d:e:f:#
 //a:b:c:#
 
 // [Abstract Syntax]
-
 // Prog [ERec (Id "f") (EAbs (Id "x") (EIf (EVar (Id "x")) ENil ENil (EApp (EVar (Id "f")) (EHd (EVar (Id "x")))))) (EApp (EVar (Id "f")) (ECons (EVar (Id "a")) (ECons (EVar (Id "b")) (EVar (Id "c")))))]
 
 //;;
 
-// code to open quiz = concurrency
-
 // weave
 
-let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):weave((tl x) (tl y)) else (hd y):f((tl x) (tl y)))
-in
-weave 0:1:4:# 2:3:5:#
+//let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):weave((tl x) (tl y)) else (hd y):f((tl x) (tl y)))
+//in
+//weave 0:1:4:# 2:3:5:#
 
 //;;
