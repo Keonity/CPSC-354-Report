@@ -44,12 +44,12 @@ even a:b:c:d:e:f:#
 
 // reverse
 
-let rec reverse_raw = \x. if (tl x) = # then hd x else (reverse_raw (tl x)):(hd x)
+let rec reverse_0 = \x. if (tl x) = # then hd x else (reverse_0 (tl x)):(hd x)
 in
-let rec reverse = \x. (reverse_raw x):#
+let rec reverse1 = \x. (reverse_0 x):#
 in
-reverse a:b:c:#
-
+//reverse1 a:b:c:#
+reverse1 0:3:5:#
 
 //let rec reverse = \x. if x = # then # else (reverse (tl x)):(hd x) in reverse a:b:c:#
 
@@ -88,8 +88,18 @@ reverse a:b:c:#
 
 // weave
 
-//let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):(weave((tl x) (tl y))) else (hd y):(weave((tl x) (tl y))))
+//let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):(weave (tl x) (tl y)) else (hd y):(weave (tl x) (tl y)))
+
+//let rec weave = (\x. \y. if  = # then # else if ((hd x) less_equal (hd y)) = 1 then (hd x):(weave (tl x) (tl y)) else (hd y):(weave (tl x) (tl y)))
 //in
 //weave 0:1:4:# 2:3:5:#
 
-//;;
+//let rec weave = (\x. \y. if x = # then # else weave((hd (tl x)):(hd(tl y)))) in weave 0:1:4:# 2:3:5:#
+
+let rec weave = (\x. \y. if x = # then (if y = # then # else (hd y):(weave (tl y) #)) else (if y = # then (if x = # then # else (hd x):(weave (tl x) (#))) else (if ((hd x) less_equal (hd y)) = 1 then (hd x):(weave (tl x) (y)) else (hd y):(weave (x) (tl y)))))
+in
+weave 0:1:4:# 2:3:5:#
+//weave 0:1:# #
+//weave # 0:1:#
+//weave 0:4:1:# 3:2:5:#
+;;
