@@ -2,9 +2,9 @@
 ### Student ID: 2344852
 ### Student Email: lanoza@chapman.edu
 ### Class: CPSC 354 - 02
-### Date Of Submission: 11/17/22
+### Date Of Submission: 11/20/22
 
-I have currently accomplished what I believe are all parts of the assignment aside from implementing the reverse and weave functions in Lambda Calculus. I have struggled with this part of the assignment for various reasons, but most notable is the lack of a way to identify which data type a parameter is in Lambda Calculus functions, mostly unhelpful error messages, and difficulty in getting functions to stop looping on an empty list or to have them stop printing what seems to be "backend code". The latter issue seems to also present itself by yielding input code in the output of LambdaNat-exe. An example of this can be found below:
+I have currently accomplished what I believe are all parts of the assignment, including the reverse and weave functions in Lambda Calculus, the part that I struggled with the most. I have struggled with this part of the assignment for various reasons, but most notable is the lack of a way to identify which data type a parameter is in Lambda Calculus functions, mostly unhelpful error messages, and difficulty in getting functions to stop looping on an empty list or to have them stop printing what seems to be "backend code". The latter issue seems to also present itself by yielding input code in the output of LambdaNat-exe. An example of this can be found below:
 
 Input for the below output: 
 `let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):weave((tl x) (tl y)) else (hd y):f((tl x) (tl y))) in weave 0:1:4:# 2:3:5:#`
@@ -18,10 +18,10 @@ Simply `#` to see if it can work on an empty list
 
 I would not have come up with a test case for #:c:b:a because that is not a list according to the definition of a list.
 
-Through the work I've completed so far on this assignment, I've learned how to better manipulate evalCBN and subst, specifically through implementing other functions in our language in them. I feel I have also improved my handling of Lambda Calculus in general. I've additionally learned that it can be very hard to implement some basic functions in Lambda Calculus because of how stripped down Lambda Calculus is in what it offers as a language. This difference stood out especially in creating the solutions.hs file, because I was able to figure out how to implement reverse and weave in that file, but am still struggling to do so in the solutions.lc file.
+Through the work I've completed on this assignment, I've learned how to better manipulate evalCBN and subst, specifically through implementing other functions in our language in them. I feel I have also improved my handling of Lambda Calculus in general. I've additionally learned that it can be very hard to implement some basic functions in Lambda Calculus because of how stripped down Lambda Calculus is in what it offers as a language. This difference stood out especially in creating the solutions.hs file, because I was able to figure out how to implement reverse and weave in that file, but am still struggling to do so in the solutions.lc file.
 
 ## Questions I Have
-I am mostly interested in where I have gone wrong in implementing reverse and weave in Lambda Calculus. I have been trying what feels like just about everything under the sun in solving this problem, but getting wrong outputs while testing and sometimes not being able to understand what it means, specifically with it printing all of those weird variables and expressions, has made it difficult. I am also interested in learning more about EFix, because I believe that a better understanding of that could possibly lead me to my solution. Lastly, I would like to know the limits of our language so far. For example, it seems that through ERec being in the grammar, we have a way to create loops, but I want to know if it is missing some core functionality as I feel it is or if I am overlooking something in the grammar or interpreter.
+After figuring out where I went wrong with implementing the reverse and weave functions in Lambda Calculus, I am now mostly interested in how I can work in the future to ensure my grammar and interpreter are correct. I am also interested in the seemingly garbage code that I sometimes got in my output, and I want to know what was happening in my program to cause that to happen. I am also interested in learning more about EFix, because I believe that I have a poor understanding of that function at this time. Lastly, I would like to know the limits of our language so far. For example, it seems that through ERec being in the grammar, we have a way to create loops, but I want to know if it is missing some core functionality as I feel it is or if I am overlooking something in the grammar or interpreter.
 
 ## Answers to Discussion Questions
 
