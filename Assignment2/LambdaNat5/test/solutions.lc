@@ -44,7 +44,21 @@ even a:b:c:d:e:f:#
 
 // reverse
 
-//let rec f = (\x. (if (hd x) = # then # else  then f(hd x):#) in f a:b:c:#
+let rec reverse_raw = \x. if (tl x) = # then hd x else (reverse_raw (tl x)):(hd x)
+in
+let rec reverse = \x. (reverse_raw x):#
+in
+reverse a:b:c:#
+
+
+//let rec reverse = \x. if x = # then # else (reverse (tl x)):(hd x) in reverse a:b:c:#
+
+// This works to an extent but fails to put # at the end.
+
+;;
+
+
+//let rec f = (\x. (if (hd x) = # then # else  then f(hd x):#))) in f a:b:c:#
 
 //let rec f = (\x. (if (hd x) = # then x else f(hd x)):#) in f a:b:c:#
 
@@ -74,7 +88,7 @@ even a:b:c:d:e:f:#
 
 // weave
 
-//let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):weave((tl x) (tl y)) else (hd y):f((tl x) (tl y)))
+//let rec weave = (\x. \y. if ((hd x) less_equal (hd y)) = 1 then (hd x):(weave((tl x) (tl y))) else (hd y):(weave((tl x) (tl y))))
 //in
 //weave 0:1:4:# 2:3:5:#
 
