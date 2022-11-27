@@ -632,25 +632,23 @@ evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) = evalCBN (EApp (\x
 
 \subsection{Week 9}
 \begin{verbatim}
-Portfolio Website Project Milestones
-1. Get a grasp on HTML by creating a general portfolio website. The website should include: 
-- A page for projects
-- A page with my resume
-- A landing page with links to the pages described above as well as contact information and hyperlinks to LinkedIn and GitHub.
+PEG.js Calculator Extension Project Milestones
+
+1. Get a grasp on Javascript by following the tutorials on learnjavascript.online.
+- There is no direct deliverable for this requirement. I will need to learn Javascript in order to work with the parser generator PEG.js.
+- A potential deliverable would be showing completion of Chapters 1 - 7 (The free chapters) in screenshots, but I feel like that would be tedious and that if needed, completion can be verified visually in office hours or right before or after class if needed.
 Milestone 1 is due by November 13th
 
-2. Get a grasp on CSS by stylizing the website created in HTML. Make things look nice by:
-- Incorporate alignment, different text styles(heading, subheading, etc)
-- Having a general theme in terms of color and font
-- Incorporate at least one basic animation per page
+2. Implement assignment, exponentiation, in the calculator project. Use this time to gain a foothold in using PEG.js and find out if capture by avoiding substitution is needed.
+- This can be tested through the PEG.js parser generator website.
+- This can also be physically submitted as a .pegjs file containing my calculator's grammar. I can include instructions to compile and run the code.
 Milestone 2 is due by November 30th
 
-3. Get a grasp on JavaScript. Do this by: 
-- Implementing the calculator project that we did in this class
+3. Implement integrals and derivatives in the calculator.
+- This can be verified via a submitted .pegjs file containing the calculator's grammar, similar to the deliverable for Milestone 2.
 Milestone 3 is due by December 16th
 
-4. Finish the project by creating a tutorial page that can educate others on how to use HTML, CSS, and JavaScript.
-This final milestone and submission is due on the Sunday at the end of finals week.
+4. Finalize the project by verifying that everything works as expected. Create basic documentation that will detail how to run the project and what the project does.
 
 ARS Exercise
 
@@ -692,8 +690,6 @@ fix_F1 * 2 = ((fix_F0 * 1) * 2)
 ((1) * 2) = 2
 \end{verbatim}
 
-\ldots
-
 \subsection{Week 11}
 
 \noindent
@@ -711,6 +707,50 @@ Question{:}
 
 What are the tests listed in appendix A of Contract.hs symbolizing? Along with that, what is the tolerance symbolizing? Do the tests and tolerance have a connection to real world tests used in finance?
 
+\subsection{Week 12}
+Apply the method of analysis from the Hoare logic lecture to:
+\begin{verbatim}
+while (x != 0) do z:=z*y; x:x-1 done
+\end{verbatim}
+
+Precondition: \{z = 1 $\wedge$ x = n\}
+\smallskip
+\smallskip
+
+Postcondition:
+\smallskip
+\smallskip
+
+Table of the Execution
+
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ t & x & y & z \\ 
+ 0 & 100 & 2 & 1 \\ 
+ 1 & 99 & 2 & 2 \\
+ 2 & 98 & 2 & 4 \\
+ 3 & 97 & 2 & 8 \\
+ \hline
+\end{tabular} \smallskip
+
+Therefore, we can give the following invariants: \smallskip
+
+$t+x=100$ \smallskip
+
+$z=y^{t}$ \smallskip
+
+Loop invariant: $z =y^{(x-100)}$ \smallskip
+
+The precondition implies the invariant: \smallskip
+$z=1$ $\wedge$ $x=n$
+$\implies$ $z=y^{(x-n)}$ \\
+
+The invariant implies the postcondition: \smallskip
+$z=y^{(x-n)}$
+$\implies$ $z=y^{n}$ \\ 
+
+This is true because at the end of the loop, $x=0$
+
 \section{Project}
 
 Introductory remarks ...
@@ -719,7 +759,7 @@ The following structure should be suitable for most practical projects.
 
 \subsection{Specification}
 
-For my course project, I intend to learn the basics of HTML and CSS, and JavaScript and use what I learn to create a portfolio of my projects, which I can use in job searches. The portfolio will use elements from all three languages to make the website look and feel intuitive as well as aesthetically pleasing. I intend to recreate the calculator project to the best of my abilities from this course to test my understanding of the background needed to make the calculator as well as my understanding of JavaScript, HTML, and CSS. The website will contain multiple pages(such as a page for my resume, a page with all of my digital art projects, etc.) that the user can access via hyperlinks. The website will also contain a tutorial on the basics of JavaScript, HTML and CSS.
+For my course project, I will be using the parser generator PEG.js in order to create a calculator similar to the one we implemented in class, but with a few major differences. My parser generator will be able to integrate functions and take the derivative of them as well. My parser will additionally be able to work with assignment, including assigning functions.
 
 \subsection{Prototype}
 \subsection{Documentation}
