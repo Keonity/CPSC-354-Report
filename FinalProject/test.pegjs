@@ -12,16 +12,20 @@ Expression
     }
 
 Term
-  = head:Factor tail:(_ ("*" / "/") _ Factor)* {
+  = head:Start tail:(_ ("*" / "/") _ Start)* {
       return tail.reduce(function(result, element) {
         if (element[1] === "*") { return result * element[3]; }
         if (element[1] === "/") { return result / element[3]; }
       }, head);
     }
 
-Factor
+Start
   = "(" _ expr:Expression _ ")" { return expr; }
   / Integer
+  / Variable
+
+Variable "variable"
+  = _ [a-zA-Z]+ { return text() }
 
 Integer "integer"
   = _ [0-9]+ { return parseInt(text(), 10); }

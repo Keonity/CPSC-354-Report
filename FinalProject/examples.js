@@ -1,3 +1,3 @@
 var parser = require('./test.js');
 
-console.log(parser.parse("2 * (3 + 4)"));
+console.log(parser.parse("xadsf"));
