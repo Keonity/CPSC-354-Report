@@ -12,17 +12,23 @@ Expression
     }
 
 Term
-  = head:Start tail:(_ ("*" / "/") _ Start)* {
+  = head:Factor tail:(_ ("*" / "/") _ Factor)* {
       return tail.reduce(function(result, element) {
         if (element[1] === "*") { return result * element[3]; }
         if (element[1] === "/") { return result / element[3]; }
       }, head);
     }
 
-Start
-  = "(" _ expr:Expression _ ")" { return expr; }
+Factor
+  = "(" _ expr:Expression _ ")" { return "9"; }
   / Integer
   / Variable
+  / Calculus
+
+Calculus
+  = "~" _ expr:Expression _ "~" { 
+    if (expr === 935) { return "1"; };
+    }
 
 Variable "variable"
   = _ [a-zA-Z]+ { return text() }

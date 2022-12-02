@@ -1,3 +1,3 @@
 var parser = require('./test.js');
 
-console.log(parser.parse("xadsf"));
+console.log(parser.parse("~934~"));
