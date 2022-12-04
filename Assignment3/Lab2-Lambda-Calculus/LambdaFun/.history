@@ -1,4 +1,22 @@
 :quit
+isEmpty [1,2,3];;
+isEmpty [];;
+:load test/examples.lc
+head [1,2,3];;
+id
+isEmpty [];;
+:quit
+isEmpty [];;
+:quit
+:quit
+isEmpty [];;
+isEmpty [] ;;
+isEmpty [] ;
+:load test/examples.lc
+isEmpty [] ;
+isEmpty [] ;;
+isEmpty []
+:quit
 :quit
 :help
 quit

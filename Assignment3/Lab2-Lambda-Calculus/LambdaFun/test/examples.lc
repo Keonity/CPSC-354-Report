@@ -14,3 +14,31 @@ rec member = \x.\y. case y of {
     [] -> false, 
     (a:as) -> case x == a of { true -> true, _ -> member x as } };;
 
+-- isEmpty
+rec isEmpty = \x. case x of {
+    [] -> true,
+    _ -> false } ;;
+
+-- fib
+rec fib = \x. case x of {
+    0 -> 0,
+    1 -> 1,
+    _ -> fib (x-1) + fib (x-2)} ;;
+
+-- length
+rec length = \x. case x of {
+    [] -> 0,
+    (a:as) -> 1 + length as } ;;
+
+-- even
+rec even = \x. case x of {
+    [] -> 1,
+    (a:as) -> 1 - even as } ;;
+
+-- reverse0
+rec reverse0 = \x. case (tail x) of {
+    [] -> (head x),
+    _ -> (reverse0 (tail x)):(head x) } ;; 
+
+-- reverse1
+rec reverse1 = \x. (reverse0 x):# ;;
