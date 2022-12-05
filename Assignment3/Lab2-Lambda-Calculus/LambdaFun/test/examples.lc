@@ -38,7 +38,34 @@ rec even = \x. case x of {
 -- reverse0
 rec reverse0 = \x. case (tail x) of {
     [] -> (head x),
-    _ -> (reverse0 (tail x)):(head x) } ;; 
+    _ -> (reverse0 (tail x)):[head x] } ;; 
 
 -- reverse1
-rec reverse1 = \x. (reverse0 x):# ;;
+-- rec reverse1 = \x. (reverse0 x):[] ;;
+
+-- weave
+rec weave = \x. \y. case x of {
+    [] -> y,
+    (x:xs) -> case y of {
+        [] -> x,
+        (y:ys) -> case (x<=y) of {
+            true -> x:(weave (xs) (y:ys)),
+            false -> y:(weave (ys) (x:xs))
+        }
+    }
+} ;;
+
+    -- -> 0 } ;;
+    --head x ;;
+    --((head x) > 2) -> 1,
+    --_ -> 0 } ;;
+    --[] -> case y of {
+    --    (head y) > 2 -> 1,
+    --    _ -> [head y]:(weave (tail y) [])
+    --},
+    --_ -> case y of {
+    --    [] -> [head x]:(weave (tail x) []),
+    --    (head y) >= (head x) -> [head x]:(weave (tail x) (y)),
+    --    _ -> [head y]:(weave (x) (tail y))
+    --    }
+    --} ;;
