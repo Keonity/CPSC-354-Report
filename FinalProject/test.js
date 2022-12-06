@@ -169,7 +169,12 @@ function peg$parse(input, options) {
       peg$c15 = "~",
       peg$c16 = peg$literalExpectation("~", false),
       peg$c17 = function(expr) { 
-          if (expr === 935) { return "1"; };
+          var myArr = expr.toString().split(' ');
+          let newStr = '';
+          for (const x of myArr) {
+            if (!isNaN(parseInt(x, 10))) { newStr += + x.toString() + 'x'; }
+          }
+          return newStr;
           },
       peg$c18 = peg$otherExpectation("variable"),
       peg$c19 = /^[a-zA-Z]/,
@@ -593,7 +598,7 @@ function peg$parse(input, options) {
       if (s0 === peg$FAILED) {
         s0 = peg$parseVariable();
         if (s0 === peg$FAILED) {
-          s0 = peg$parseCalculus();
+          s0 = peg$parseIntegrate();
         }
       }
     }
@@ -601,7 +606,7 @@ function peg$parse(input, options) {
     return s0;
   }
 
-  function peg$parseCalculus() {
+  function peg$parseIntegrate() {
     var s0, s1, s2, s3, s4, s5;
 
     s0 = peg$currPos;

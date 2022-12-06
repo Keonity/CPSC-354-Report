@@ -23,11 +23,16 @@ Factor
   = "(" _ expr:Expression _ ")" { return "9"; }
   / Integer
   / Variable
-  / Calculus
+  / Integrate
 
-Calculus
+Integrate
   = "~" _ expr:Expression _ "~" { 
-    if (expr === 935) { return "1"; };
+    var myArr = expr.toString().split(' ');
+    let newStr = '';
+    for (const x of myArr) {
+      if (!isNaN(parseInt(x, 10))) { newStr += + x.toString() + 'x'; }
+    }
+    return newStr;
     }
 
 Variable "variable"
