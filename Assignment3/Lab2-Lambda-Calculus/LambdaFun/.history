@@ -1,3 +1,4 @@
+:quit
 :qui
 hd a;;
 hd [1,2,3];;
@@ -97,4 +98,3 @@ insert 1 [] ;;
 weave [0,1,4] [2,3,5] ;;
 :load test/examples.lc
 weave [0,1,4] [2,3,5] ;;
-:load test/examples.lc

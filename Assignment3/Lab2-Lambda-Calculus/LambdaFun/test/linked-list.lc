@@ -46,14 +46,24 @@ rec print = \list.
         _ -> (hd list):(print (tl list))
     } ;;
 
--- insert n list
+val a = new [];;
+a:=(cons 1(cons 2 nil));;
+val b = 3;;
+
 rec insert = \n. \l. 
-    let val ptr = new [] in -- creating a new pointer
-    ptr := n; -- making it point to the new element
-    case !l of { 
-        "NULL" -> ptr := (cons !n nil), -- if the list is null, create a new list with the number
-        [e, a'] -> ptr := (cons !l !n) -- if the list is of type list, insert the element wherever in the list
+    let val newNode = new [] in
+    newNode:=!(cons (hd !l) (cons (tl !l) n));
+    case !l of {
+        "NULL" -> l:=(cons n nil),
+        _ -> case (hd !l) < n of {
+            true -> l:=(!newNode),
+            false -> insertA n (tl l),
+            _ -> l:=(cons n nil)
+        }
     }
-    !ptr;;    
+    ;;
 
-
+val list = new [];;
+list := (cons 1 2);;
+val listInsert=3;;
+insert listInsert list;;
