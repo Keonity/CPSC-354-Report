@@ -50,6 +50,12 @@ rec print = \list.
 --a:=(cons 1(cons 2 nil));;
 --val b = 3;;
 
+val inbetween = \n. \left. \right.
+    let val between = new [] in
+    between := [n, right];
+    tl(!left) := !between;
+    left;;
+
 rec insert = \n. \l. 
     case !l of {
         "NULL" -> l:=(cons n nil),
@@ -84,32 +90,70 @@ rec insertA = \n. \l.
         }
     l;;
 
-val insertB = \n. \list.
+rec insertB = \n. \list.
     let val ptr = new [] in
     let val num = new [] in
     num := n;
     ptr := list;
     case !list of {
-        "NULL" -> (cons n list),
-        _ -> while !(!ptr) != "NULL" do
-            case !(!ptr) of {
-                [e, a'] -> ptr:=nil,
-                _ -> ptr:=nil
+        "NULL" -> (cons n nil),
+        [e, a'] -> case (e > n) of {
+            true -> (cons n nil),
+            false -> case ((head a') > n) of {
+                True -> (cons e (cons n (tl list))),
+                False -> (cons e (insertB n (a')))
             }
+        }
+--        _ -> case ((head !(!ptr)) > n) of {
+--            true -> (cons n list),
+--            false -> insertB n n,
+--            True -> (cons n list),
+--            False -> insertB n !(tail list),
+--            _ -> insertB n !(tail list)
+--        }
+        --while !(!ptr) != "NULL" do
+         --   case !(!ptr) of {
+           --     [e, a'] -> ptr:=nil,
+            --    _ -> ptr:=nil
+           -- }
     }
     ;;
 
-print (insertB 5 (insertB 4 (insertB 3 nil)));;
-
-rec sort = \l. 
-    case !l of {
-        "NULL" -> [],
-        _ -> case (head (tail l) < (head l)) of {
-            --"NULL" -> [],
-            True -> (cons (head !(tl l)) l),
-            False -> l,
-            _ -> (cons 3 nil)
+val insertC = \n. \list.
+    let val ptr = new [] in
+    let val i = new [] in
+    let val newList = new [] in
+    i := 0;
+    ptr := list;
+    newList := n;
+    case !list of {
+        "NULL" -> (cons n nil),
+        [e,a'] -> case (e >= n) of {
+            True -> 
+                let val newList2 = new [] in
+                let val returnList = new [] in
+                newList2 := !(cons n a');
+                returnList := !(cons e newList2);
+                returnList,
+            False -> (insertC (e (insertC n (tail list)))),
+            _ -> (cons n nil)
         }
     };;
 
---print(sort (cons 5 (cons 4 (cons 3 (cons 2 nil)))));;
+print(insertC 1 (insertC 2 (insertC 4 (insertC 3 nil))));;
+
+
+--print (insertB 3 (insertB 2 (insertB 4 (insertB 5 (insertB 1 nil)))));;
+
+rec sort = \l. 
+    let val sortedList = new [] in
+    let val ptr = new [] in
+    ptr:=l;
+    sortedList:=l;
+    case !l of {
+        "NULL" -> sortedList,
+        [e, a'] -> sortedList:=(insertC e (tl l)),
+        [a'] -> cons e nil
+    };;
+
+print (sort (cons 6 (cons 4 (cons 2 nil))));;
