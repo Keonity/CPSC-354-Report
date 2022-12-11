@@ -23,7 +23,7 @@ Expression
     }
 
 Term
-  = head:Factor tail:(_ ("*" / "/") _ Factor)* {
+  = head:Exponentiation tail:(_ ("*" / "/") _ Exponentiation)* {
       return tail.reduce(function(result, element) {
         if (element[1] === "*") { return result * element[3]; }
           //if (element[3] === "x") 
@@ -32,12 +32,13 @@ Term
       }, head);
     }
 
+Exponentiation
+  = head:Factor "^" tail:Factor { return Math.pow(head, tail); }
+
 Factor
   = "(" _ expr:Expression _ ")" { return expr; }
-  / Assignment  
   / Integer
   / Variable
-  / Calculus
 
 Calculus
   = "~" calc:[0-9] "~" { 
@@ -59,6 +60,12 @@ Calculus
 
 Assignment "assignment"
   = varA:Variable _ "=" _ intA:Integer { return ['assign', varA, 'to', intA.toString()]; }
+
+IntegrateVar = 
+  "~" varA:Variable { return ['IntegrateVar', varA]; }
+
+IntegrateInt = 
+  "~" intA:Integer { return ['IntegrateInt', intA]; }
 
 Variable "variable"
   = _ [a-zA-Z]+ { return text(); }

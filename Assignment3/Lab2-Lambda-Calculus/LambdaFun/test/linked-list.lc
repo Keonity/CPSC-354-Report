@@ -20,12 +20,6 @@ val tl = \a.
         [e,a'] -> a'
     } ;;
 
-rec lengthRec = \l. 
-    case !l of { 
-        "NULL" -> 0 , 
-        _ -> 1 + length (tail l) 
-    } ;;
-
 val length = \a. 
     let val ptr = new [] in
     let val i = new [] in
@@ -39,6 +33,12 @@ val length = \a.
         } ;
     !i;;
 
+rec lengthRec = \l. 
+    case !l of { 
+        "NULL" -> 0 , 
+        _ -> 1 + length (tail l) 
+    } ;;
+
 -- `print (cons 6 (cons 4 (cons 2 nil)))` outputs [6,4,2]
 rec print = \list.
     case !list of {
@@ -46,24 +46,70 @@ rec print = \list.
         _ -> (hd list):(print (tl list))
     } ;;
 
-val a = new [];;
-a:=(cons 1(cons 2 nil));;
-val b = 3;;
+--val a = new [];;
+--a:=(cons 1(cons 2 nil));;
+--val b = 3;;
 
 rec insert = \n. \l. 
-    let val newNode = new [] in
-    newNode:=!(cons (hd !l) (cons (tl !l) n));
     case !l of {
         "NULL" -> l:=(cons n nil),
-        _ -> case (hd !l) < n of {
-            true -> l:=(!newNode),
-            false -> insertA n (tl l),
-            _ -> l:=(cons n nil)
+        _ -> case ((head l) <= n) of {
+            False -> insert n (tail l),
+            True -> case (head (tail l) > n) of {
+                False -> l:=(cons n l),
+                True -> l:=(cons n l),
+                _ -> (insert n (tail l))
+            },
+            _ -> insert n (tail l)
         }
     }
     ;;
 
-val list = new [];;
-list := (cons 1 2);;
-val listInsert=3;;
-insert listInsert list;;
+rec insertA = \n. \l.
+    let val ptr = new [] in
+    let val i = new [] in
+    let val num = new [] in
+    i := 0;
+    num := n;
+    ptr := l;
+    while !(!ptr) != "NULL" do
+        case !(!ptr) of {
+            [e,a'] -> ptr:=a',
+            [a'] ->
+                    case (!a' < n) of {
+                        True -> a':=(cons !a' (cons n l)),
+                        False -> insertA n (tail l)
+                    }
+                ptr:=!a'
+        }
+    l;;
+
+val insertB = \n. \list.
+    let val ptr = new [] in
+    let val num = new [] in
+    num := n;
+    ptr := list;
+    case !list of {
+        "NULL" -> (cons n list),
+        _ -> while !(!ptr) != "NULL" do
+            case !(!ptr) of {
+                [e, a'] -> ptr:=nil,
+                _ -> ptr:=nil
+            }
+    }
+    ;;
+
+print (insertB 5 (insertB 4 (insertB 3 nil)));;
+
+rec sort = \l. 
+    case !l of {
+        "NULL" -> [],
+        _ -> case (head (tail l) < (head l)) of {
+            --"NULL" -> [],
+            True -> (cons (head !(tl l)) l),
+            False -> l,
+            _ -> (cons 3 nil)
+        }
+    };;
+
+--print(sort (cons 5 (cons 4 (cons 3 (cons 2 nil)))));;
