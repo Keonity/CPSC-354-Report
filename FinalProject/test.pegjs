@@ -34,25 +34,13 @@ Term
 
 Exponentiation
   = head:Factor "^" tail:Factor { return Math.pow(head, tail); }
+  / IntegrateInt
+  / IntegrateVar
 
 Factor
   = "(" _ expr:Expression _ ")" { return expr; }
   / Integer
   / Variable
-
-Calculus
-  = "~" calc:[0-9] "~" { 
-    return toString(calc);
-
-    //let newStr = '';
-    //myArr.forEach(function(x) {
-    //  if (!isNaN(parseInt(x, 10))) { newStr = newStr + x.toString() + 'x'; }
-    //  else if (x === 'x') { newStr = newStr + '(' + x + '^2)/2' ; }
-    //  else { newStr = newStr + 'LOL'; }
-    //});
-
-    //return newStr;
-  }
 
 // Parse expressions to certain strings such as "~A" = integrate A
 // Correspond integrate A to a function integrate(A)
@@ -61,11 +49,11 @@ Calculus
 Assignment "assignment"
   = varA:Variable _ "=" _ intA:Integer { return ['assign', varA, 'to', intA.toString()]; }
 
-IntegrateVar = 
-  "~" varA:Variable { return ['IntegrateVar', varA]; }
+IntegrateVar 
+  = "~" _ varA:Variable+ { return ['IntegrateVar', varA]; }
 
-IntegrateInt = 
-  "~" intA:Integer { return ['IntegrateInt', intA]; }
+IntegrateInt
+  = "`" _ intA:Integer+ { return ['IntegrateInt', intA]; }
 
 Variable "variable"
   = _ [a-zA-Z]+ { return text(); }
