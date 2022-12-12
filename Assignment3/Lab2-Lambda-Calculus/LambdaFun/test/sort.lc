@@ -157,9 +157,6 @@ b := [2,a];;
 -- case ((hd list) >= n) = (1 >= 3) = false (So why does it evaluate as true?) 
 -} 
 
-print(insertC 1 (insertC 4 (insertC 2 (insertC 3 nil))));;
-
-
 --print (insertB 3 (insertB 2 (insertB 4 (insertB 5 (insertB 1 nil)))));;
 
 rec sort = \l. 
@@ -169,8 +166,17 @@ rec sort = \l.
     --sortedList:=l;
     case !l of {
         "NULL" -> nil,
-        [e, a'] -> (insertC e (sort (tl l))),
-        [a'] -> cons a' nil
+        [e, a'] -> (insertC e (sort (tl l)))
+        --[a'] -> cons a' nil
     };;
 
+
+-- INSERT
+print(insertC 1 (insertC 4 (insertC 2 (insertC 3 nil))));;
+print(insertC 1 (insertC 1 (insertC 1 nil)));;
+print(insertC 2 (insertC 0 (insertC 25 nil)));;
+
+-- SORT
 print (sort (cons 3 (cons 5 (cons 6 (cons 2 nil)))));;
+print (sort (cons 221 (cons 0 (cons 1 nil))));;
+print (sort (cons 1 (cons 1 (cons 0 (cons 0 (cons 3 nil))))));;

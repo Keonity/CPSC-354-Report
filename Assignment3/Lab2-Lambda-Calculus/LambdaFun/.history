@@ -1,85 +1,32 @@
 :quit
-docker end
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
-:load test/linked-list.lc
+quit
+;quit
+:env
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
+:load test/sort.lc
 :load test/linked-list.lc
 :load test/linked-list.lc
 :load test/linked-list.lc
 :load test/linked-list.lc
 :load test/linked-list.lc
 :env
+:env
+:load test/linked-list.lc
 :load test/linked-list.lc
 :env
+:env
+:load test/linked-list.lc
+:env
+:env
+:load test/linked-list.lc
+:quit
 :env
 :load test/linked-list.lc
 :load test/linked-list.lc
@@ -95,6 +42,59 @@ docker end
 :load test/linked-list.lc
 :load test/linked-list.lc
 :load test/linked-list.lc
+hd a >= 3;;
+hd a >= 3;;
+hd a;;
 :load test/linked-list.lc
 :load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+:load test/linked-list.lc
+(tl (cons 6 (cons 4 (cons 2 nil))));;
+(tl (cons 6 (cons 4 (cons 2 nil))));;
+(tail (cons 6 (cons 4 (cons 2 nil))));;
+(tail (cons 6 (cons 4 (cons 2 nil)));;
+(tail (cons 6 (cons 4 (cons 2 nil)));;;
+(tail (cons 6 (cons 4 (cons 2 nil)));;
 :load test/linked-list.lc
