@@ -126,7 +126,7 @@ rec insertA = \n. \l.
     ;; 
 -}
 
-rec insertC = \n. \list.
+rec insert = \n. \list.
     --let val ptr = new [] in
     --let val i = new [] in
     --let val newList = new [] in
@@ -137,7 +137,7 @@ rec insertC = \n. \list.
         "NULL" -> (cons n nil),
         [e,a'] -> case ((hd list) >= n) of {
             true -> (cons n list),
-            false -> (insertC (e) (insertC n (tl list))),
+            false -> (insert (e) (insert n (tl list))),
             _ -> (cons n nil)
         }
     };;
@@ -166,15 +166,15 @@ rec sort = \l.
     --sortedList:=l;
     case !l of {
         "NULL" -> nil,
-        [e, a'] -> (insertC e (sort (tl l)))
+        [e, a'] -> (insert e (sort (tl l)))
         --[a'] -> cons a' nil
     };;
 
 
 -- INSERT
-print(insertC 1 (insertC 4 (insertC 2 (insertC 3 nil))));;
-print(insertC 1 (insertC 1 (insertC 1 nil)));;
-print(insertC 2 (insertC 0 (insertC 25 nil)));;
+print(insert 1 (insert 4 (insert 2 (insert 3 nil))));;
+print(insert 1 (insert 1 (insert 1 nil)));;
+print(insert 2 (insert 0 (insert 25 nil)));;
 
 -- SORT
 print (sort (cons 3 (cons 5 (cons 6 (cons 2 nil)))));;

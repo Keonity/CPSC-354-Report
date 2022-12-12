@@ -1,5 +1,8 @@
 :quit
 quit
+:load test/sort.lc
+:quit
+quit
 ;quit
 :env
 :load test/sort.lc
@@ -95,6 +98,3 @@ hd a;;
 (tl (cons 6 (cons 4 (cons 2 nil))));;
 (tail (cons 6 (cons 4 (cons 2 nil))));;
 (tail (cons 6 (cons 4 (cons 2 nil)));;
-(tail (cons 6 (cons 4 (cons 2 nil)));;;
-(tail (cons 6 (cons 4 (cons 2 nil)));;
-:load test/linked-list.lc
