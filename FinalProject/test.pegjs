@@ -12,6 +12,11 @@
     if (x === "934 * 3") { return "9"; }
     else { return x; }
   }
+
+  function newVar(x, y) {
+    const scope = { x:y }
+    return scope;
+  }
 }
 
 Expression
@@ -21,6 +26,7 @@ Expression
         if (element[1] === "-") { return result - element[3]; }
       }, head);
     }
+    
 
 Term
   = head:Exponentiation tail:(_ ("*" / "/") _ Exponentiation)* {
@@ -31,14 +37,17 @@ Term
         if (element[1] === "/") { return result / element[3]; }
       }, head);
     }
+    
 
 Exponentiation
-  = head:Factor "^" tail:Factor { return Math.pow(head, tail); }
+  = head:Factor "^" tail:Factor* { return Math.pow(head, tail); }
+  / Assign
   / IntegrateInt
   / IntegrateVar
 
 Factor
-  = "(" _ expr:Expression _ ")" { return expr; }
+  = "(" _ expr:Expression _ ")"* { return expr; }
+  / Assign
   / Integer
   / Variable
 
@@ -46,8 +55,8 @@ Factor
 // Correspond integrate A to a function integrate(A)
 // Print correct text based on that function
 
-Assignment "assignment"
-  = varA:Variable _ "=" _ intA:Integer { return ['assign', varA, 'to', intA.toString()]; }
+Assign
+  = _ varA:Variable+ ":" _ intA:Integer+ { return ['Assign', newVar(varA, intA)]; }
 
 IntegrateVar 
   = "~" _ varA:Variable+ { return ['IntegrateVar', varA]; }
