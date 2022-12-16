@@ -40,23 +40,38 @@ Term
     
 
 Exponentiation
-  = head:Factor "^" tail:Factor* { return Math.pow(head, tail); }
-  / Assign
-  / IntegrateInt
-  / IntegrateVar
-
+  = head:Factor tail:(_ "^" _ Factor)* { 
+      return tail.reduce(function(result, element) {
+        { return Math.pow(result, element[3]) ; }
+      }, head);
+    }
+  
 Factor
-  = "(" _ expr:Expression _ ")"* { return expr; }
+  = "(" _ expr:Expression _ ")" { return expr; }
   / Assign
   / Integer
   / Variable
+  / IntegrateInt
+  / IntegrateVar
+  / Application
+  / Derivative
+
 
 // Parse expressions to certain strings such as "~A" = integrate A
 // Correspond integrate A to a function integrate(A)
 // Print correct text based on that function
 
+Application
+ = "$" _ expr:Expression "$" _ expr2:Expression "$" { return ['Application', text()]; }
+
+Derivative
+ = "_" _ expr:Expression _ "_" { return ['Derivative', text()]; }
+
 Assign
   = _ varA:Variable+ ":" _ intA:Integer+ { return ['Assign', newVar(varA, intA)]; }
+
+Assignment2
+  = "{" _ varA:Variable+ ":" _ intA:Integer+ "}" { return text(); }
 
 IntegrateVar 
   = "~" _ varA:Variable+ { return ['IntegrateVar', varA]; }
