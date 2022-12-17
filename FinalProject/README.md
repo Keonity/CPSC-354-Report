@@ -32,6 +32,7 @@ This project is extending the default PEG.JS calculator functionality by adding 
     `(Base character of tilde key[key under escape])Number` 
     - You can indicate that you want to exponentiate a constant by following the grammar:
     `Number^NumberTwo`
+4. Run the calculator with the following command: `node interpreter.js`
 
 ## KNOWN BUGS
 At the time of writing, there are a few issues with this project. I've observed that the code in `index.html` does not allow me to display data from `interpreter.js` in the webpage. Through my research, I've concluded that this is because browsers do not have support for the JavaScript `require()` function, and that a common workaround is to use a bundler to create a `bundle.js` file which is a webpage-compatible version of files that use the `require()` function or other webpage-incompatible code.
