@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="../static/js/examples2.js" type="text/javascript">
+        </script>
+        <title>A Simple Javascript Calculator</title>
+    </head>
+    <body>
+        <h1>Welcome. Please enter your query.</h1>
+        <form>
+            <button onclick="alert('Test')">Call function</button>
+        </form>
+        <script src="../node_modules/mathjs/lib/browser/math.js" type="text/javascript"></script>
+        <!---<script src="../static/js/test.js" type="text/javascript"></script>
+        <script src="../static/js/examples.js" type="text/javascript"></script>--->
+        <script type="text/javascript">
+            function mainFunction() {
+                var parser = require("./test.js")
+                const listCommand = (parser.parse("/2/"))
+                //console.log(mathjs.integral('x^2', 'x'))
+                for (let i = 0; i<listCommand.length-1; i++) {
+                    //console.log(listCommand[i])
+                    if (listCommand[i] === 'Assign' && i === 0) {
+                        console.log(listCommand[1])
+                    }
+                    else if (listCommand[i] === 'Assign2' && i === 0) {
+                        console.log(listCommand[1])
+                    }
+                    else if (listCommand[i] === 'Derivative' && i === 0) {
+                        let functionBefore = String(listCommand[1])
+                        let functionLength = functionBefore.length
+                        //let functionAfter = functionBefore.substring(1, functionLength)
+                        let functionArgs = functionBefore.split("$")
+                        //console.log(mathjs.derivative(newAfter))
+            
+                        //console.log(mathjs.evaluate(functionAfter))
+                    }
+                    else if (listCommand[i] === 'IntegrateExp' && i === 0) {
+                        console.log("Test")
+                        alert("Test")
+                        //return document.body.innerHTML("<h2>Test</h2>")
+                    }
+                    else if (listCommand[i] === 'IntegrateVar' && i === 0) {
+                        console.log('(' + String(listCommand[i+1]) + ')^2/2')   
+                    }
+                    else if (listCommand[i] === 'IntegrateInt' && i === 0) {
+                        console.log(String(listCommand[i+1][0]) + 'x')
+                    }   
+                    else if (listCommand[i] === 'Assignment' && i === 0) {
+                        varName = String(listCommand[1])
+                        varNum = 2
+                        let scope = { varName:varNum }
+                        console.log(scope)
+                    }
+                }
+        } </script>   
+    </body>
+</html>

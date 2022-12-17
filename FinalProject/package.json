@@ -1,7 +1,9 @@
 {
   "dependencies": {
-    "type": "module",
     "mathjs": "^11.5.0",
     "pegjs": "^0.10.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.2"
   }
 }
