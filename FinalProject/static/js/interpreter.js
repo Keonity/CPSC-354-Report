@@ -1,7 +1,8 @@
 var parser = require('./test.js');
+const mathjs = require('mathjs');
 
 function mainFunction() {
-    const listCommand = (parser.parse("~X"))
+    const listCommand = (parser.parse("_$X^2$X$_"))
     console.log(listCommand)
     //console.log(mathjs.integral('x^2', 'x'))
     for (let i = 0; i<listCommand.length-1; i++) {
@@ -14,10 +15,10 @@ function mainFunction() {
         }
         else if (listCommand[i] === 'Derivative' && i === 0) {
             let functionBefore = String(listCommand[1])
-            //let functionLength = functionBefore.length
-            //let functionAfter = functionBefore.substring(1, functionLength)
+            let functionLength = functionBefore.length
+            let functionAfter = functionBefore.substring(1, functionLength)
             let functionArgs = functionBefore.split("$")
-            //console.log(mathjs.derivative(newAfter))
+            console.log(mathjs.derivative(functionArgs[1], functionArgs[2]))
             console.log(functionArgs)
             //console.log(mathjs.evaluate(functionAfter))
         }
@@ -36,7 +37,7 @@ function mainFunction() {
             }
         }
         else if (listCommand[i] === 'IntegrateInt' && i === 0) {
-            console.log(String(listCommand[i+1][0]) + 'x')
+            console.log(String(listCommand[i+1][0]) + 'x + C')
         }   
         else if (listCommand[i] === 'Assignment' && i === 0) {
             varName = String(listCommand[1])
