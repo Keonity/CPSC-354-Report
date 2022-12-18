@@ -24,24 +24,28 @@ This project is extending the default PEG.JS calculator functionality by adding 
 
 ### RUNNING INSTRUCTIONS
 
-#### PARSER
+~~#### PARSER
 
 1. Use `cd static/js`
 2. Open `interpreter.js` in your editor of choice
 3. Modify the input to be parsed in line 5 of `interpreter.js`
-    - You can indicate you want to derive a function by following the grammar: `_$FunctionHere$FunctionVariable$_`
-    - You can indicate that you want to integrate a variable by following the grammar:
-    `~Variable`
-    - You can indicate that you want to integrate a constant by following the grammar:
-    `(Base character of tilde key[key under escape])Number` 
-    - You can indicate that you want to exponentiate a constant by following the grammar:
-    `Number^NumberTwo`
-4. Run the calculator with the following command: `node interpreter.js`
+    - GRAMMAR
+        - You can call any of the basic math operations(+, -, /, *) with the following grammar:
+        `Number Operation Number` (e.g. `2 + 2`)
+        - You can indicate you want to derive a function by following the grammar: `_$FunctionHere$FunctionVariable$_` (e.g. `_$X^2$X$_`)
+        - You can indicate that you want to integrate a variable by following the grammar:
+        `~Variable` (e.g. `~X`)
+        - You can indicate that you want to integrate a constant by following the grammar:
+        `(Base character of tilde key[key under escape])Number` 
+        - You can indicate that you want to exponentiate a constant by following the grammar:
+        `Number^NumberTwo` (e.g. `2^2`)
+4. Run the calculator with the following command: `node interpreter.js`~~
 
 #### WEBPAGE
 1. Be sure you are in the main folder of the project. (`\FinalProject\`)
-2. `npx parcel static/index.html`
+2. Use `npx parcel static/index.html`
 3. You can view console output of the parser by right-clicking on the page, clicking on `Inspect source`, and then navigating to your browser's console tab.
+4. Call the function: `parseGrammar(string)` in the console to parse a math expression defined within the above grammar.
 
 ## KNOWN BUGS
 At the time of writing, there are a few issues with this project. I've observed that the code in `index.html` does not allow me to display data from `interpreter.js` in the webpage. Through my research, I've concluded that this is because browsers do not have support for the JavaScript `require()` function, and that a common workaround is to use a bundler to create a `bundle.js` file which is a webpage-compatible version of files that use the `require()` function or other webpage-incompatible code.

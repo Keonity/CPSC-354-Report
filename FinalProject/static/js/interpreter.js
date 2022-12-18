@@ -1,10 +1,12 @@
 import { parse } from './test.js';
-import { create, all } from 'mathjs';
+import * as math from 'mathjs';
 
-export function interpret(expression) {
+
+export function parseGrammar(expression) {
     console.log('Please enter a statement you would like parsed.')
+    console.log('Statement to be parsed: ' + expression)
     const listCommand = (parse(expression))
-    console.log(listCommand)
+    console.log('Parsed and interpreted result: ' + listCommand)
     //console.log(mathjs.integral('x^2', 'x'))
     for (let i = 0; i<listCommand.length-1; i++) {
         //console.log(listCommand[i])
@@ -16,8 +18,8 @@ export function interpret(expression) {
         }
         else if (listCommand[i] === 'Derivative' && i === 0) {
             let functionBefore = String(listCommand[1])
-            let functionLength = functionBefore.length
-            let functionAfter = functionBefore.substring(1, functionLength)
+            //let functionLength = functionBefore.length
+            //let functionAfter = functionBefore.substring(1, functionLength)
             let functionArgs = functionBefore.split("$")
             console.log(math.derivative(math.evaluate(String(functionArgs[1])), functionArgs[2]))
             console.log(functionArgs)
@@ -25,7 +27,7 @@ export function interpret(expression) {
         }
         else if (listCommand[i] === 'IntegrateExp' && i === 0) {
             console.log("Test")
-            alert("Test")
+            //alert("Test")
             //return document.body.innerHTML("<h2>Test</h2>")
         }
         else if (listCommand[i] === 'IntegrateVar' && i === 0) {
@@ -42,12 +44,19 @@ export function interpret(expression) {
         }   
         else if (listCommand[i] === 'Assignment' && i === 0) {
             varName = String(listCommand[1])
-            varNum = 2
-            let scope = { newVar:varNum }
-            console.log(scope)
+            //varNum = 2
+            //let scope = { newVar:varNum }
+            console.log(varName)
         }
     }
     window.alert(listCommand)
 }
 
-interpret("2+2")
+
+const textInp = document.getElementById("statement").value
+const textChg = document.getElementById("statement");
+textChg.oninput = console.log(parseGrammar(textInp))
+
+window.parseGrammar= parseGrammar;
+
+parseGrammar("2^0")

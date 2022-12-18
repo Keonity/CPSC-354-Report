@@ -6,18 +6,27 @@
             // interpreter("_$x^2$x$_")
         </script>
         <script src="../node_modules/mathjs/lib/browser/math.js" type="module"></script>
+        <script src="../static/js/test2.js" type="module"></script>
+        <script src="../static/js/interpreter.js" type="module"></script>
         <title>A Simple Javascript Calculator</title>
     </head>
     <body>
         <h1>Welcome. Please enter a statement you would like parsed.</h1>
         <label for="statement">Equation or expression to parse.</label>
-        <input type="text" id="statement" name="Statement"><br><br>
-        <script src="../static/js/test2.js" type="module"></script>
-        <script src="../static/js/interpreter.js" type="module"></script>
-        <!--- <button onclick="display()">Call interpreter.</button> --->
-        <label for="output">Calculator output:</label>
-        
-        </script>
+        <form id="parsing">
+            <script src="../static/js/interpreter.js" type="module"></script>
+            <input type="text" id="statement" name="Statement" value="0" onchange="parseGrammar(statement)"><br><br>
+            <script src="../static/js/interpreter.js" type="module"></script>
+            <script type="text/javascript"> 
+                function callInterpreter() {
+                    parseGrammar(statement)
+                }
+            </script>
+            <button onclick="">Call Interpreter</button>
+            <!--- <script>document.getElementById('statement').value</script> --->
+            <!--- <button id="parseExp" >Call interpreter.</button> --->
+            <label for="output">Calculator output:</label>
+        </form>
         <form>
             <button onclick="alert('Test')">Call function</button>
         </form>
