@@ -177,7 +177,7 @@ export function peg$parse(input, options) {
       peg$c17 = function(expr) { return expr; },
       peg$c18 = "$",
       peg$c19 = peg$literalExpectation("$", false),
-      peg$c20 = function(expr, expr2) { return ['Application', text()]; },
+      peg$c20 = function(expr, expr2) { return ['Application', expr, expr2]; },
       peg$c21 = "_",
       peg$c22 = peg$literalExpectation("_", false),
       peg$c23 = function(expr) { return ['Derivative', text()]; },
@@ -805,7 +805,7 @@ export function peg$parse(input, options) {
   }
 
   function peg$parseDerivative() {
-    var s0, s1, s2, s3, s4, s5;
+    var s0, s1, s2, s3;
 
     s0 = peg$currPos;
     if (input.charCodeAt(peg$currPos) === 95) {
@@ -816,31 +816,19 @@ export function peg$parse(input, options) {
       if (peg$silentFails === 0) { peg$fail(peg$c22); }
     }
     if (s1 !== peg$FAILED) {
-      s2 = peg$parse_();
+      s2 = peg$parseExpression();
       if (s2 !== peg$FAILED) {
-        s3 = peg$parseExpression();
+        if (input.charCodeAt(peg$currPos) === 95) {
+          s3 = peg$c21;
+          peg$currPos++;
+        } else {
+          s3 = peg$FAILED;
+          if (peg$silentFails === 0) { peg$fail(peg$c22); }
+        }
         if (s3 !== peg$FAILED) {
-          s4 = peg$parse_();
-          if (s4 !== peg$FAILED) {
-            if (input.charCodeAt(peg$currPos) === 95) {
-              s5 = peg$c21;
-              peg$currPos++;
-            } else {
-              s5 = peg$FAILED;
-              if (peg$silentFails === 0) { peg$fail(peg$c22); }
-            }
-            if (s5 !== peg$FAILED) {
-              peg$savedPos = s0;
-              s1 = peg$c23(s3);
-              s0 = s1;
-            } else {
-              peg$currPos = s0;
-              s0 = peg$FAILED;
-            }
-          } else {
-            peg$currPos = s0;
-            s0 = peg$FAILED;
-          }
+          peg$savedPos = s0;
+          s1 = peg$c23(s2);
+          s0 = s1;
         } else {
           peg$currPos = s0;
           s0 = peg$FAILED;
@@ -1358,12 +1346,7 @@ export function peg$parse(input, options) {
   }
 }
 
-const SyntaxError = peg$SyntaxError;
-const parse = peg$parse;
+const SyntaxError = peg$SyntaxError
+const parse = peg$parse
 
-export { SyntaxError, parse}
-
-//module.exports = {
-//  SyntaxError: peg$SyntaxError,
-//  parse:       peg$parse
-//};
+export { SyntaxError, parse }

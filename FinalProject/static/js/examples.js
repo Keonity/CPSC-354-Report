@@ -18,7 +18,7 @@ const { derivative, evaluate } = require('mathjs');
 //  }
 
 function mainFunction() {
-    const listCommand = (parser.parse("/2/"))
+    const listCommand = (parser.parse("_$X^2$X$_"))
     //console.log(mathjs.integral('x^2', 'x'))
     alert("This is working.")
     for (let i = 0; i<listCommand.length-1; i++) {
@@ -62,4 +62,3 @@ function mainFunction() {
 }
 
 mainFunction()
-alert("Test")

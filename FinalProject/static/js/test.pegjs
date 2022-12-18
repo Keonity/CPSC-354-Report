@@ -64,10 +64,10 @@ Factor
 // Print correct text based on that function
 
 Application
- = "$" _ expr:Expression "$" _ expr2:Expression "$" { return ['Application', text()]; }
+ = "$" _ expr:Expression "$" _ expr2:Expression "$" { return ['Application', expr, expr2]; }
 
 Derivative
- = "_" _ expr:Expression _ "_" { return ['Derivative', text()]; }
+ = "_" expr:Expression "_" { return ['Derivative', text()]; }
 
 IntegrateExp
   = "/" _ expr:Expression _ "/" { return ['IntegrateExp', text()]}

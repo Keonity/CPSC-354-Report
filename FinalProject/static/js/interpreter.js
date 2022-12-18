@@ -7,6 +7,7 @@ export function parseGrammar(expression) {
     console.log('Statement to be parsed: ' + expression)
     const listCommand = (parse(expression))
     console.log('Parsed and interpreted result: ' + listCommand)
+    window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + String(listCommand)
     //console.log(mathjs.integral('x^2', 'x'))
     for (let i = 0; i<listCommand.length-1; i++) {
         //console.log(listCommand[i])
@@ -21,35 +22,45 @@ export function parseGrammar(expression) {
             //let functionLength = functionBefore.length
             //let functionAfter = functionBefore.substring(1, functionLength)
             let functionArgs = functionBefore.split("$")
-            console.log(math.derivative(math.evaluate(String(functionArgs[1])), functionArgs[2]))
+            console.log("Calculator output: " + String(math.derivative((functionArgs[1]), functionArgs[2])))
             console.log(functionArgs)
             //console.log(mathjs.evaluate(functionAfter))
+            window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + String(math.derivative((functionArgs[1]), functionArgs[2]))
         }
         else if (listCommand[i] === 'IntegrateExp' && i === 0) {
             console.log("Test")
             //alert("Test")
             //return document.body.innerHTML("<h2>Test</h2>")
+            window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + String(listCommand)
         }
         else if (listCommand[i] === 'IntegrateVar' && i === 0) {
             //console.log(typeof(listCommand[2][0]))
             if (listCommand[2][0] === undefined) {
-                console.log('(' + String(listCommand[i+1]) + ')^2/2')
+                console.log("Calculator output: " + '(' + String(listCommand[i+1]) + ')^2/2')
+                window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + '(' + String(listCommand[i+1]) + ')^2/2'
             }
             else {
-                console.log('(' + String(listCommand[i+1]) + ')^' + String(listCommand[i+2][0]+1) + '/' + String(listCommand[i+2][0]+1))  
+                console.log("Calculator output: " + '(' + String(listCommand[i+1]) + ')^' + String(listCommand[i+2][0]+1) + '/' + String(listCommand[i+2][0]+1))  
+                window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + '(' + String(listCommand[i+1]) + ')^' + String(listCommand[i+2][0]+1) + '/' + String(listCommand[i+2][0]+1)
             }
+            //window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + String(listCommand)
         }
         else if (listCommand[i] === 'IntegrateInt' && i === 0) {
-            console.log(String(listCommand[i+1][0]) + 'x + C')
+            console.log("Calculator output: " + String(listCommand[i+1][0]) + 'x + C')
+            window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + String(listCommand[i+1][0]) + 'x + C'
         }   
         else if (listCommand[i] === 'Assignment' && i === 0) {
             varName = String(listCommand[1])
             //varNum = 2
             //let scope = { newVar:varNum }
-            console.log(varName)
+            console.log("Calculator output: " + varName)
+            //window.document.getElementById("calcOutput").innerHTML = "Calculator Output: " + String(listCommand)
+        }
+        else { 
+            console.log(listCommand)
+            //window.document.getElementById("calcOutput").innerHTML = "Calculator Output: lol"
         }
     }
-    window.alert(listCommand)
 }
 
 

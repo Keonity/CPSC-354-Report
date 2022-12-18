@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "mathjs": "^11.5.0",
-    "pegjs": "^0.10.0"
+    "pegjs": "^0.10.0",
+    "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "parcel": "^2.8.2"

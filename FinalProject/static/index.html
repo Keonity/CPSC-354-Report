@@ -11,8 +11,8 @@
         <title>A Simple Javascript Calculator</title>
     </head>
     <body>
-        <h1>Welcome. Please enter a statement you would like parsed.</h1>
-        <label for="statement">Equation or expression to parse.</label>
+        <h1>Welcome. At the time of writing, input for the parser is only available in the browser console. Please enter a statement you would like parsed there in the following format: parseGrammar(string).</h1>
+        <label for="statement">(PLACEHOLDER)Equation or expression to parse.</label>
         <form id="parsing">
             <script src="../static/js/interpreter.js" type="module"></script>
             <input type="text" id="statement" name="Statement" value="0" onchange="parseGrammar(statement)"><br><br>
@@ -25,11 +25,11 @@
             <button onclick="">Call Interpreter</button>
             <!--- <script>document.getElementById('statement').value</script> --->
             <!--- <button id="parseExp" >Call interpreter.</button> --->
-            <label for="output">Calculator output:</label>
+            <label for="output" id="calcOutput">Calculator output:</label>
         </form>
-        <form>
+        <!---<form>
             <button onclick="alert('Test')">Call function</button>
-        </form>
+        </form>--->
         <!---<script src="../static/js/test.js" type="text/javascript"></script>
         <script src="../static/js/examples.js" type="text/javascript"></script>--->
         <!--- <script type="text/javascript">
