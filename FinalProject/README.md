@@ -24,7 +24,7 @@ This project is extending the default PEG.JS calculator functionality by adding 
 
 ### RUNNING INSTRUCTIONS
 
-~~#### PARSER
+<!--- #### PARSER
 
 1. Use `cd static/js`
 2. Open `interpreter.js` in your editor of choice
@@ -39,7 +39,7 @@ This project is extending the default PEG.JS calculator functionality by adding 
         `(Base character of tilde key[key under escape])Number` 
         - You can indicate that you want to exponentiate a constant by following the grammar:
         `Number^NumberTwo` (e.g. `2^2`)
-4. Run the calculator with the following command: `node interpreter.js`~~
+4. Run the calculator with the following command: `node interpreter.js` --->
 
 #### WEBPAGE
 1. Be sure you are in the main folder of the project. (`\FinalProject\`)
