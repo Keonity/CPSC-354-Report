@@ -14,11 +14,12 @@ As of December 16th, 2022, I have accomplished the following features of this pr
 - Adding simple integration of constants and variables to the calculator
 - A CLI-specific implementation of the calculator.
 - Full webpage integration
+- Added definite integral evaluation to the calculator (Alternative for integrating functions)
 
 I have yet to implement or find an alternative for the following:
 
 - Adding an assignment feature to the calculator that extends beyond the scope of one eval() function.
-- Adding integration of functions to the calculator
+- Adding full integration of functions to the calculator
 
 ## PROJECT OVERVIEW
 
@@ -45,15 +46,16 @@ This project is extending the default PEG.JS calculator functionality by adding 
 2. Use `node ./cli.js`
 3. Follow the in-line instructions to parse your expression.
     - GRAMMAR
-        - You can call any of the basic math operations(+, -, /, *) with the following grammar:
+        - You can call any of the basic math operations(+, -, /, *, %, ^) with the following grammar:
         `Number Operation Number` (e.g. `2 + 2`)
         - You can indicate you want to derive a function by following the grammar: `_$FunctionHere$FunctionVariable$_` (e.g. `_$X^2$X$_`)
+        - You can indicate that you want to integrate a definite integral by following the grammar:
+        `.Function$UpperBound$LowerBound.` (e.g. `.x^2$0$5.`)
         - You can indicate that you want to integrate a variable by following the grammar:
         `~Variable` (e.g. `~X`)
         - You can indicate that you want to integrate a constant by following the grammar:
         `(Base character of tilde key[key under escape])Number` 
-        - You can indicate that you want to exponentiate a constant by following the grammar:
-        `Number^NumberTwo` (e.g. `2^2`)
+
 
 ## KNOWN BUGS
 None known at the time of writing.

@@ -16,11 +16,41 @@ const parsedResult = parse(expression)
 console.log('You entered: ' + String(expression))
 //console.log(parsedResult[0])
 
+function integrate (f, start, end) {
+    if (f === 'x') {
+        f = '(x^2)/2'
+    }
+    else {
+        let stringArgs = f.split('^')
+        f = '(' + String(stringArgs[0]) + '^' + String(parseInt(stringArgs[1], 10)+1) + ') / ' + String(parseInt(stringArgs[1], 10)+1)
+    }
+    let total = 0
+    console.log(f)
+    console.log(math.evaluate(f.replace("x", end)))
+    total = total + math.evaluate((f.replace("x", end)))
+    console.log(total)
+    total = total - math.evaluate((f.replace("x", start)))
+    console.log(total)
+    /*for (let x = start; x < end; x += step) {
+      total += parseInt(f.replace("x", x))
+      console.log(x)
+    }*/
+    return total
+  }
+
+
 if (parsedResult[0] === 'Derivative') {
     let inputFunc = String(parsedResult[1])
     let functionArgs = inputFunc.split("$")
     console.log(functionArgs)
     console.log(String(math.derivative((functionArgs[1]), (functionArgs[2]))))
+}
+else if (parsedResult[0] === 'DefIntegral') {
+    let inputFunc = String(parsedResult[1])
+    let trimmedFunc = inputFunc.substring(1, inputFunc.length - 1)
+    let functionArgs = trimmedFunc.split("$")
+    console.log(integrate(functionArgs[0], parseInt(functionArgs[1], 10), parseInt(functionArgs[2], 10)))
+    console.log(functionArgs)
 }
 else if (parsedResult[0] === 'IntegrateInt') {
     console.log(String(parsedResult[1][0]) + 'x + C')

@@ -58,12 +58,16 @@ Factor
   / IntegrateExp
   / Application
   / Derivative
+  / DefIntegral
 
 Application
  = "$" _ expr:Expression "$" _ expr2:Expression "$" { return ['Application', expr, expr2]; }
 
 Derivative
  = "_" expr:Expression "_" { return ['Derivative', text()]; }
+
+DefIntegral
+ = "." expr:Expression "$" intA:Integer "$" intB:Integer "." { return ['DefIntegral', text(), intA, intB]; }
 
 IntegrateExp
   = "/" _ expr:Expression _ "/" { return ['IntegrateExp', text()]}
