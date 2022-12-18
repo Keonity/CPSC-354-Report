@@ -22,6 +22,10 @@ I have yet to implement or find an alternative for the following:
 
 This project is extending the default PEG.JS calculator functionality by adding variable assignment, exponentiation, integration, and derivation features. Some of these features are already present, some are not. Here is how to run the program:
 
+### RUNNING INSTRUCTIONS
+
+#### PARSER
+
 1. Use `cd static/js`
 2. Open `interpreter.js` in your editor of choice
 3. Modify the input to be parsed in line 5 of `interpreter.js`
@@ -33,6 +37,11 @@ This project is extending the default PEG.JS calculator functionality by adding 
     - You can indicate that you want to exponentiate a constant by following the grammar:
     `Number^NumberTwo`
 4. Run the calculator with the following command: `node interpreter.js`
+
+#### WEBPAGE
+1. Be sure you are in the main folder of the project. (`\FinalProject\`)
+2. `npx parcel static/index.html`
+3. You can view console output of the parser by right-clicking on the page, clicking on `Inspect source`, and then navigating to your browser's console tab.
 
 ## KNOWN BUGS
 At the time of writing, there are a few issues with this project. I've observed that the code in `index.html` does not allow me to display data from `interpreter.js` in the webpage. Through my research, I've concluded that this is because browsers do not have support for the JavaScript `require()` function, and that a common workaround is to use a bundler to create a `bundle.js` file which is a webpage-compatible version of files that use the `require()` function or other webpage-incompatible code.

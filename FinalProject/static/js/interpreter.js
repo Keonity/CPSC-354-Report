@@ -1,8 +1,9 @@
-var parser = require('./test.js');
-const mathjs = require('mathjs');
+import { parse } from './test.js';
+import { create, all } from 'mathjs';
 
-function mainFunction() {
-    const listCommand = (parser.parse("_$X^2$X$_"))
+export function interpret(expression) {
+    console.log('Please enter a statement you would like parsed.')
+    const listCommand = (parse(expression))
     console.log(listCommand)
     //console.log(mathjs.integral('x^2', 'x'))
     for (let i = 0; i<listCommand.length-1; i++) {
@@ -18,7 +19,7 @@ function mainFunction() {
             let functionLength = functionBefore.length
             let functionAfter = functionBefore.substring(1, functionLength)
             let functionArgs = functionBefore.split("$")
-            console.log(mathjs.derivative(functionArgs[1], functionArgs[2]))
+            console.log(math.derivative(math.evaluate(String(functionArgs[1])), functionArgs[2]))
             console.log(functionArgs)
             //console.log(mathjs.evaluate(functionAfter))
         }
@@ -42,10 +43,11 @@ function mainFunction() {
         else if (listCommand[i] === 'Assignment' && i === 0) {
             varName = String(listCommand[1])
             varNum = 2
-            let scope = { varName:varNum }
+            let scope = { newVar:varNum }
             console.log(scope)
         }
     }
+    return listCommand
 }
 
-mainFunction()
+interpret("2+2")

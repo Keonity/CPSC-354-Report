@@ -1,3 +1,6 @@
-function display() {
-    alert("Hello world!")
+export function display() {
+    console.log("Test")
+    return "Test"
 }
+
+display()
