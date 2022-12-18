@@ -12,17 +12,17 @@
     </head>
     <body>
         <h1>Welcome. At the time of writing, input for the parser is only available in the browser console. Please enter a statement you would like parsed there in the following format: parseGrammar(string).</h1>
-        <label for="statement">(PLACEHOLDER)Equation or expression to parse.</label>
+        <label for="statement">Equation or expression to parse:</label>
         <form id="parsing">
-            <script src="../static/js/interpreter.js" type="module"></script>
-            <input type="text" id="statement" name="Statement" value="0" onchange="parseGrammar(statement)"><br><br>
-            <script src="../static/js/interpreter.js" type="module"></script>
+            <!--- <script src="../static/js/interpreter.js" type="module"></script> --->
+            <input type="text" id="statement" name="Statement" value="0" onchange="console.log(parseGrammar(document.getElementById('statement').value))"><br><br>
+            <!--- <script src="../static/js/interpreter.js" type="module"></script> --->
             <script type="text/javascript"> 
                 function callInterpreter() {
-                    parseGrammar(statement)
+                    console.log(parseGrammar(document.getElementById('statement').value))
                 }
             </script>
-            <button onclick="">Call Interpreter</button>
+            <button type="button" onclick="callInterpreter()">Call Interpreter</button>
             <!--- <script>document.getElementById('statement').value</script> --->
             <!--- <button id="parseExp" >Call interpreter.</button> --->
             <label for="output" id="calcOutput">Calculator output:</label>

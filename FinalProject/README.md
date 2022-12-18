@@ -13,18 +13,31 @@ As of December 16th, 2022, I have accomplished the following features of this pr
 - Adding a derivative function to the calculator
 - Adding simple integration of constants and variables to the calculator
 - A CLI-specific implementation of the calculator.
+- Full webpage integration
 
 I have yet to implement or find an alternative for the following:
 
 - Adding an assignment feature to the calculator that extends beyond the scope of one eval() function.
 - Adding integration of functions to the calculator
-- Full webpage integration
 
 ## PROJECT OVERVIEW
 
 This project is extending the default PEG.JS calculator functionality by adding variable assignment, exponentiation, integration, and derivation features. Some of these features are already present, some are not. Here is how to run the program:
 
 ### RUNNING INSTRUCTIONS
+
+#### WEBPAGE
+1. Be sure you are in the main folder of the project. (`\FinalProject\`)
+2. Use `npx parcel static/index.html`
+3. Enter the expression you would like parsed in the textbox.
+4. Call the interpreter by pressing the `Call interpreter` button to display your results.
+
+#### WEBPAGE CLI
+1. Be sure you are in the main folder of the project. (`\FinalProject\`)
+2. Use `npx parcel static/index.html`
+3. You can view the console of the page by right-clicking on the page, clicking on `Inspect source`, and then navigating to your browser's console tab.
+4. Call the function: `parseGrammar(string)` in the console to parse a math expression defined within the above grammar.
+5. The output of the parser will be displayed on screen next to: `Calculator Output: `
 
 #### CLI
 
@@ -42,15 +55,10 @@ This project is extending the default PEG.JS calculator functionality by adding 
         - You can indicate that you want to exponentiate a constant by following the grammar:
         `Number^NumberTwo` (e.g. `2^2`)
 
-#### WEBPAGE
-1. Be sure you are in the main folder of the project. (`\FinalProject\`)
-2. Use `npx parcel static/index.html`
-3. You can view the console of the page by right-clicking on the page, clicking on `Inspect source`, and then navigating to your browser's console tab.
-4. Call the function: `parseGrammar(string)` in the console to parse a math expression defined within the above grammar.
-5. The output of the parser will be displayed on screen next to: `Calculator Output: `
-
 ## KNOWN BUGS
 None known at the time of writing.
 
 ## LESSONS LEARNED
 - This assignment has allowed me to strengthen my knowledge of context-free grammars, interpreters, parsers, JavaScript, and HTML. While I still have far to go before I call this project portfolio-worthy, I can confidently say that I know the purpose of context-free grammars, parsers, and interpreters. 
+
+- I have also learned through this assignment the complications between Node JS, ES6, and CommonJS and as I've navigated them, I've learned that ES6 is the standard while CommonJS is outdated.

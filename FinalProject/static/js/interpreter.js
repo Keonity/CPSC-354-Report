@@ -70,4 +70,4 @@ textChg.oninput = console.log(parseGrammar(textInp))
 
 window.parseGrammar= parseGrammar;
 
-parseGrammar("2^0")
+//parseGrammar("2^0")
