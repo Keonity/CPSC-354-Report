@@ -30,12 +30,13 @@ Expression
     
 
 Term
-  = head:Exponentiation tail:(_ ("*" / "/") _ Exponentiation)* {
+  = head:Exponentiation tail:(_ ("*" / "/" / "%") _ Exponentiation)* {
       return tail.reduce(function(result, element) {
         if (element[1] === "*") { return result * element[3]; }
           //if (element[3] === "x") 
            // if (head.toString() === ('~' + tail + '~')) { return result.toString() + "*" + "x^2/2"; }
         if (element[1] === "/") { return result / element[3]; }
+        if (element[1] === "%") { return result % element[3]; }
       }, head);
     }
     
