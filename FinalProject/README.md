@@ -6,7 +6,7 @@
 
 ## PROJECT MILESTONES
 
-As of December 16th, 2022, I have accomplished the following features of this project:
+As of December 18th, 2022, I have accomplished the following features of this project:
 
 - Edited the base PEG.JS grammar to accomodate the additional features I wanted to add to the calculator
 - Adding exponentiation to the calculator
