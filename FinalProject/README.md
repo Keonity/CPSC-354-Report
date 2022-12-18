@@ -20,6 +20,8 @@ I have yet to implement or find an alternative for the following:
 
 - Adding an assignment feature to the calculator that extends beyond the scope of one eval() function.
 - Adding full integration of functions to the calculator
+- Regarding the above two points:
+ Originally, I had also planned to implement variable-to-integer assignment along with full integration capabilities for functions, but these proved difficult. Creating and assigning variables dynamically is not only difficult, but I found also dangerous, and full integration capabilities for functions is not supported by integral evaluation modules for JavaScript.
 
 ## PROJECT OVERVIEW
 
