@@ -47,7 +47,7 @@ export function interpret(expression) {
             console.log(scope)
         }
     }
-    return listCommand
+    window.alert(listCommand)
 }
 
 interpret("2+2")
