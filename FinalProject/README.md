@@ -23,7 +23,7 @@ I have yet to implement or find an alternative for the following:
 
 ## PROJECT OVERVIEW
 
-This project is extending the default PEG.JS calculator functionality by adding variable assignment, exponentiation, integration, and derivation features. Some of these features are already present, some are not. Here is how to run the program:
+This project is extending the default PEG.JS calculator functionality by adding variable assignment, exponentiation, integration, and derivation features. Here is how to run the program:
 
 ### RUNNING INSTRUCTIONS
 

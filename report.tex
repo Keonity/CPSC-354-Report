@@ -543,6 +543,8 @@ evalCBN(\x.x)((\y0.y0)a) =
 \end{verbatim}
 
 \subsection{Week 7}
+
+Scope, Computing, and evaluting evalCBN()
 \begin{verbatim}
 
 evalCBN: Bound variable
@@ -620,51 +622,48 @@ evalCBN (EApp (subst i (\x(\y.x)) y) (subst i (\x(\y.x)) x)) = evalCBN (EApp (\x
 \includegraphics [scale=0.50]{ARS2}	
 
 \subsection{Week 8}
-\begin{verbatim}
-1. The ARS does not terminate because the rewrite rules ba -> ab and ab -> ba allow for an infinite loop that doesn't terminate. There is no measure function for this ARS. 
-
-2. The normal forms are an empty word, a, and b. 
-
-3.We are unable to change this ARS to have unique normal forms while maintaining the same equivalence relations because the relation onf ba -> ab and ab -> ba remaining in the ARS do not allow for unique normal forms. 
-
-4. The normal forms here mean that two of the same character are rewritten to just one of the characters and two different characters are rewritten in reverse order. This function could be used for taking the square root of numbers. This is because the square root of two numbers that are the same is just the number before they are multiplied together, and the square root of two different numbers multiplied together equals the square root of those two numbers multiplied together in reverse order.
-\end{verbatim}
+\begin{enumerate}
+\item The ARS does not terminate because the rewrite rules ba $\implies$ ab and ab $\implies$ ba allow for an infinite loop that doesn't terminate. There is no measure function for this ARS. 
+\item The normal forms are an empty word, a, and b. 
+\item We are unable to change this ARS to have unique normal forms while maintaining the same equivalence relations because the relation onf ba $\implies$ ab and ab $\implies$ ba remaining in the ARS do not allow for unique normal forms. 
+\item The normal forms here mean that two of the same character are rewritten to just one of the characters and two different characters are rewritten in reverse order. This function could be used for taking the square root of numbers. This is because the square root of two numbers that are the same is just the number before they are multiplied together, and the square root of two different numbers multiplied together equals the square root of those two numbers multiplied together in reverse order.
+\end{enumerate}
 
 \subsection{Week 9}
-\begin{verbatim}
 PEG.js Calculator Extension Project Milestones
+\begin{itemize}
+\item Get a grasp on Javascript by following the tutorials on learnjavascript.online. There is no direct deliverable for this requirement. I will need to learn Javascript in order to work with the parser generator PEG.js. A potential deliverable would be showing completion of Chapters 1 - 7 (The free chapters) in screenshots, but I feel like that would be tedious and that if needed, completion can be verified visually in office hours or right before or after class if needed. Milestone 1 is due by November 13th
+\item Implement assignment, exponentiation, in the calculator project. Use this time to gain a foothold in using PEG.js and find out if capture by avoiding substitution is needed. This can be tested through the PEG.js parser generator website. This can also be physically submitted as a .pegjs file containing my calculator's grammar. I can include instructions to compile and run the code. Milestone 2 is due by November 30th
+\item Implement integrals and derivatives in the calculator. This can be verified via a submitted .pegjs file containing the calculator's grammar, similar to the deliverable for Milestone 2. Milestone 3 is due by December 16th
+\item Finalize the project by verifying that everything works as expected. Create basic documentation that will detail how to run the project and what the project does.
+\end{itemize}
 
-1. Get a grasp on Javascript by following the tutorials on learnjavascript.online.
-- There is no direct deliverable for this requirement. I will need to learn Javascript in order to work with the parser generator PEG.js.
-- A potential deliverable would be showing completion of Chapters 1 - 7 (The free chapters) in screenshots, but I feel like that would be tedious and that if needed, completion can be verified visually in office hours or right before or after class if needed.
-Milestone 1 is due by November 13th
-
-2. Implement assignment, exponentiation, in the calculator project. Use this time to gain a foothold in using PEG.js and find out if capture by avoiding substitution is needed.
-- This can be tested through the PEG.js parser generator website.
-- This can also be physically submitted as a .pegjs file containing my calculator's grammar. I can include instructions to compile and run the code.
-Milestone 2 is due by November 30th
-
-3. Implement integrals and derivatives in the calculator.
-- This can be verified via a submitted .pegjs file containing the calculator's grammar, similar to the deliverable for Milestone 2.
-Milestone 3 is due by December 16th
-
-4. Finalize the project by verifying that everything works as expected. Create basic documentation that will detail how to run the project and what the project does.
 
 ARS Exercise
 
-1.
-ba -> ab
-ab -> ba
-ac -> ca
-ca -> ac
-bc -> cb
-cb -> bc
-aa -> b
-ab -> c
-ac ->  
-bb ->
-cb -> a
-cc -> b
+ba $\implies$ ab
+
+ab $\implies$ ba
+
+ac $\implies$ ca
+
+ca -$\implies$ ac
+
+bc $\implies$ cb
+
+cb $\implies$ bc
+
+aa $\implies$ b
+
+ab $\implies$ c
+
+ac $\implies$  
+
+bb $\implies$
+
+cb $\implies$ a
+
+cc $\implies$ b
 
 This ARS is not terminating because there is possibility for infinite loops.
 
@@ -674,10 +673,8 @@ We can characterize equivalence classes in this case by normal forms.
 
 Equivalence Classes: ab, ba, ac, ca, bc, cb, (ac, bb), (aa, cb), (ab), (cc), empty word
 
-This ARS is not confluent because of the only one-step computations that compute to the same element (aa -> b and cc -> b, ac -> empty word, bb -> empty word), none of the elements they compute to lead back to them.
+This ARS is not confluent because of the only one-step computations that compute to the same element (aa $\implies$ b and cc $\implies$ b, ac $\implies$ empty word, bb $\implies$ empty word), none of the elements they compute to lead back to them.
 
-
-\end{verbatim}
 
 \subsection{Week 10}
 \[fix_F2\]
@@ -762,16 +759,51 @@ The following structure should be suitable for most practical projects.
 For my course project, I will be using the parser generator PEG.js in order to create a calculator similar to the one we implemented in class, but with a few major differences. My parser generator will be able to integrate functions and take the derivative of them as well. My parser will additionally be able to work with assignment, including assigning functions.
 
 \subsection{Prototype}
+
+In the fall 2022 semester, we did not follow the past final project schedule. For instance, we did not have a prototype implementation or core section of a theoretical report due. 
+
 \subsection{Documentation}
+
+This project is primarily an extension and my own web-implementation of the PEG.JS example calculator. The base of the project, from PEG.JS, had the capability to parse simple arithmetic expressions of addition, subtraction, multiplication, and division. I have extended this by adding the following features:
+
+\begin{itemize}
+\item Exponentiation
+\item Derivation capabilities
+\item Definite integration capabilities
+\item Integration of a single variable
+\item Integration of a constant
+\end{itemize}
+
+Originally, I had also planned to implement variable-to-integer assignment along with full integration capabilities for functions, but these proved difficult. Creating and assigning variables dynamically is not only difficult, but I found also dangerous, and full integration capabilities for functions is not supported by integral evaluation modules for JavaScript. I have found the following as alternatives:
+
+\begin{itemize}
+\item Instead of variable assignment, I made a CLI implementation of the calculator as well as a webpage-implementation.
+\item Instead of full integration of expression support, I implemented definite integration capabilities.
+\end{itemize}
+
 \subsection{Critical Appraisal}
+
+The learning goals of this project were to familiarize myself with HTML and JavaScript as well as improve my knowledge and usage of parsers, interpreters, and context-free grammars(CFGs) by creating a program that can run on a webpage. I believe I have accomplished my goals while developing this program because of the many issues I faced and overcame in developing this project. Some of the issues I faced are as follows:
+
+\begin{itemize}
+\item Complications in getting HTML to recognize and use my JavaScript files and functions.
+\item Issues concerning the difference between CommonJS modules and ES modules and converting them.
+\item Difficulty adjusting to and modifying the PEG.JS grammar (Some documentation is missing and the PEG.JS project itself is a work in progress).
+\item Issues in finding a bundler that would allow my JavaScript files to work with HTML
+\end{itemize}
 
 \ldots
 
 \section{Conclusions}\label{conclusions}
 
-(approx 400 words)
+Professor Kurz’s Programming Languages course at Chapman University offers students the opportunity to dive deeper into their knowledge of programming languages and learn how to construct one of their own. Students learn about the difference between imperative and functional programming, the function of parsers and interpreters, how to use Haskell, how to use Lambda Calculus, how to use LaTeX, and lots of theory and abstract concepts relating to programming. 
 
-In the conclusion, I want a critical reflection on the content of the course. Step back from the technical details. How does the course fit into the wider world of programming languages and software engineering?
+This course is essential in preparing future software engineers and computer scientists for the technology industry. While anyone can program only knowing the syntax of a language and without knowing the concepts taught in this class, expert programmers need to know concepts taught in this course, such as how to create their own programming language and how a programming language works. This allows them to efficiently debug their coding problems and understand what is actually happening on the back-end. Beyond this, programmers also gain knowledge on insight on other valuable topics, such as context-free grammars, string rewriting, syntax trees, and more.
+
+In addition to the skills students gain in this course, Professor Kurz encourages students to relate the course to real-world concepts and applications. One example of this is in the fall 2022 semester, Professor Kurz had students analyze and critically think about the implementation of contracts in Haskell. This is beneficial to the world of software engineering in that it encourages students to think about what things in real life can be implemented in programming languages as well as the benefits and drawbacks of such an implementation. It’s important to expose students to how the course material relates to real-world applications and problems because it helps inspire them to find and solve these problems. Another way Professor Kurz helps students explore applications of programming languages to real-world problems is by requiring students to develop a project of their own over the later half of the course. Students may write an interpreter of their own, learn a programming language, develop a program of their own, and more.
+
+The concepts and assignments in this course all come together to strengthen a programmer’s knowledge and skill set in ways that prepare students for the workforce or to even just be efficient and knowledgeable independent programmers on their own. I, for example, developed a web-implementation of an extension for PEG.JS’s example calculator, and in doing so learned a lot about how to develop my own web-application. The skills I gained with that project in particular, I foresee myself using in the future.
+
 
 \begin{thebibliography}{99}
 \bibitem[PL]{PL} \href{https://github.com/alexhkurz/programming-languages-2022/blob/main/README.md}{Programming Languages 2022}, Chapman University, 2022.
