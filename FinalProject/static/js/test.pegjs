@@ -58,11 +58,6 @@ Factor
   / Application
   / Derivative
 
-
-// Parse expressions to certain strings such as "~A" = integrate A
-// Correspond integrate A to a function integrate(A)
-// Print correct text based on that function
-
 Application
  = "$" _ expr:Expression "$" _ expr2:Expression "$" { return ['Application', expr, expr2]; }
 

@@ -11,8 +11,9 @@
         <title>A Simple Javascript Calculator</title>
     </head>
     <body>
-        <h1>Welcome. At the time of writing, input for the parser is only available in the browser console. Please enter a statement you would like parsed there in the following format: parseGrammar(string).</h1>
-        <label for="statement">Equation or expression to parse:</label>
+        <h1 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">CPSC-354 PEG.JS Calculator Extension</h1>
+        <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Welcome. Please enter a statement you would like parsed. Be sure you follow the grammar below:</h3>
+        <label for="statement" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Equation or expression to parse:</label>
         <form id="parsing">
             <!--- <script src="../static/js/interpreter.js" type="module"></script> --->
             <input type="text" id="statement" name="Statement" value="0" onchange="console.log(parseGrammar(document.getElementById('statement').value))"><br><br>
@@ -22,11 +23,16 @@
                     console.log(parseGrammar(document.getElementById('statement').value))
                 }
             </script>
-            <button type="button" onclick="callInterpreter()">Call Interpreter</button>
+            <button type="button" onclick="callInterpreter()">Call Interpreter</button><br></br>
             <!--- <script>document.getElementById('statement').value</script> --->
             <!--- <button id="parseExp" >Call interpreter.</button> --->
-            <label for="output" id="calcOutput">Calculator output:</label>
+            <label for="output" id="calcOutput" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Calculator output:</label>
         </form>
+        <h2 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Grammar</h2>
+        <ul><h3 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Basic arithmetic: Integer (+, -, *, /, ^) Integer</h3></ul>
+        <ul><h3 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Integration of a variable: ~Variable OR ~Variable^Integer</h3></ul>
+        <ul><h3 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Integration of a constant: `Constant</h3></ul>
+        <ul><h3 style="text-align: center;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Derivative: _$FunctionToBeDerived$VariableToDeriveFunctionWithRespectTo$_</h3></ul>           
         <!---<form>
             <button onclick="alert('Test')">Call function</button>
         </form>--->
